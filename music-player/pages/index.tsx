@@ -18,10 +18,16 @@ const Home: NextPage = () => {
         </h1>
 
         <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
+          <div className={styles.card}>
             <h2>Song title &rarr;</h2>
             <p>Content</p>
-          </a>
+
+            <div className={styles.controlPanel}>
+              <button>Previous</button>
+              <button>Play</button>
+              <button>Next</button>
+            </div>
+          </div>
         </div>
       </main>
     </div >

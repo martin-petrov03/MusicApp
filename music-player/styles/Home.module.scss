@@ -1,3 +1,5 @@
+@import "./variables.scss";
+
 .container {
   min-height: 100vh;
   padding: 0 0.5rem;
@@ -6,6 +8,7 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
+  color: $text-color;
 }
 
 .main {
@@ -17,22 +20,22 @@
   align-items: center;
 }
 
-.title a {
-  color: #0070f3;
-  text-decoration: none;
-
-  a:hover,
-  a:focus,
-  a:focus,
-  a:active {
-    text-decoration: underline;
-  }
-}
-
 .title {
   margin: 0;
   line-height: 1.15;
   font-size: 4rem;
+
+  a {
+    color: $base-color;
+    text-decoration: none;
+
+    a:hover,
+    a:focus,
+    a:focus,
+    a:active {
+      text-decoration: underline;
+    }
+  }
 }
 
 .title,
@@ -45,33 +48,17 @@
   font-size: 1.5rem;
 }
 
-.grid {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  max-width: 800px;
-  margin-top: 3rem;
-}
-
 .card {
-  width: 25em;
+  width: 30em;
   height: 35em;
   margin: 1rem;
   padding: 1.5rem;
-  text-align: left;
   color: inherit;
   text-decoration: none;
   border: 1px solid #eaeaea;
   border-radius: 10px;
-  transition: color 0.15s ease, border-color 0.15s ease;  
-
-  :hover,
-  :focus,
-  :active {
-    color: #0070f3;
-    border-color: #0070f3;
-  }
+  transition: color 0.15s ease, border-color 0.15s ease;
+  margin-top: 4em;
 
   h2 {
     margin: 0 0 1rem 0;
@@ -79,16 +66,38 @@
   }
 
   p {
-    margin: 0;
     font-size: 1.25rem;
-    line-height: 1.5;
-    text-align: center;
+    line-height: 3.5;
   }
-}
 
-@media (max-width: 600px) {
-  .grid {
+  h2:hover,
+  p:hover,
+  h2:focus,
+  p:focus,
+  h2:active,
+  p:active {
+    color: $base-color;
+  }
+
+  .controlPanel {
+    display: flex;
+    justify-content: space-between;
+    align-items: space-between;
     width: 100%;
-    flex-direction: column;
+    margin-top: auto;
+
+    button {
+      flex-grow: 1;
+    }
+
+    button:nth-child(2) {
+      flex-grow: 2;
+    }
+  }
+
+  .card:hover,
+  .card:focus,
+  .card:active {
+    border-color: $base-color;
   }
 }
