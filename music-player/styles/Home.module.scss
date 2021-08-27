@@ -68,6 +68,7 @@
   p {
     font-size: 1.25rem;
     line-height: 3.5;
+    height: 17em;
   }
 
   h2:hover,
@@ -80,18 +81,26 @@
   }
 
   .controlPanel {
-    display: flex;
-    justify-content: space-between;
-    align-items: space-between;
     width: 100%;
-    margin-top: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
 
     button {
-      flex-grow: 1;
+      width: 5em;
+      height: 5em;
+      padding: 0 auto;
+      margin: 0 auto;
+      background-color: none;
+      border-radius: 50%;
+      border: 0.7em solid $text-color;
     }
 
+    //play & pause button
     button:nth-child(2) {
-      flex-grow: 2;
+      width: 8em;
+      height: 8em;
     }
   }
 
