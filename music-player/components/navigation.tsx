@@ -1,6 +1,4 @@
-import type { NextPage } from "next";
-
-const Navigation: NextPage = () => {
+const Navigation = () => {
   return (
     <div>
       <ul>

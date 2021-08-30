@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import { Navigation } from "../../components/index";
-import styles from "../styles/Home.module.scss";
+import styles from "../../styles/Song.module.scss";
 
 const Song: NextPage = () => {
   return (
