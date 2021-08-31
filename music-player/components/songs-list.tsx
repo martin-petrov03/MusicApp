@@ -12,20 +12,44 @@ const SongsList = () => {
   let setSongs: any;
   [songs, setSongs] = useState([
     {
-      title: "Nirvana ",
+      title: "Nirvana",
       url: "https://www.nme.com/wp-content/uploads/2020/10/GettyImages-86132259-696x442.jpg",
     },
     {
-      title: "Nirvana ",
+      title: "Queen Bohemian Rhapsody",
+      url: "https://muzikercdn.com/uploads/products/3733/373332/thumb_d_gallery_base_c48ba6c3.jpg",
+    },
+    {
+      title: "Eagles - Hotel California",
+      url: "https://i.ytimg.com/vi/EqPtz5qN7HM/maxresdefault.jpg",
+    },
+    {
+      title: "Nirvana",
       url: "https://www.nme.com/wp-content/uploads/2020/10/GettyImages-86132259-696x442.jpg",
     },
     {
-      title: "Nirvana ",
+      title: "Queen Bohemian Rhapsody",
+      url: "https://muzikercdn.com/uploads/products/3733/373332/thumb_d_gallery_base_c48ba6c3.jpg",
+    },
+    {
+      title: "Eagles - Hotel California",
+      url: "https://i.ytimg.com/vi/EqPtz5qN7HM/maxresdefault.jpg",
+    },
+    {
+      title: "Nirvana",
       url: "https://www.nme.com/wp-content/uploads/2020/10/GettyImages-86132259-696x442.jpg",
     },
     {
-      title: "Nirvana ",
-      url: "https://www.nme.com/wp-content/uploads/2020/10/GettyImages-86132259-696x442.jpg",
+      title: "Queen Bohemian Rhapsody",
+      url: "https://muzikercdn.com/uploads/products/3733/373332/thumb_d_gallery_base_c48ba6c3.jpg",
+    },
+    {
+      title: "Eagles - Hotel California",
+      url: "https://i.ytimg.com/vi/EqPtz5qN7HM/maxresdefault.jpg",
+    },
+    {
+      title: "Eagles - Hotel California",
+      url: "https://i.ytimg.com/vi/EqPtz5qN7HM/maxresdefault.jpg",
     },
   ]);
 

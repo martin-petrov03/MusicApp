@@ -3,16 +3,17 @@
   flex-flow: row wrap;
   justify-items: center;
   flex-direction: row;
-  width: 67%;
   text-align: center;
   margin: 0 auto;
+  margin-right: 0;
+  width: 80%;
 
   .song {
     margin: 0 1em;
 
     img {
-      width: 14em;
-      height: auto;
+      width: 10em;
+      height: 10em;
     }
   }
 }
