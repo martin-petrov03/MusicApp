@@ -1,7 +1,19 @@
 .links {
+  .link:hover {
+    svg {
+      fill: hsl(0, 0, 60%);
+    }
+
+    li {
+      color: hsl(0, 0, 60%);
+    }
+  }
+
   .icon {
     padding-top: 1em;
     line-height: 2em;
+    width: 2.5em;
+    height: 2.5em;
   }
 
   li {
