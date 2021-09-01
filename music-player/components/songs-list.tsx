@@ -2,15 +2,13 @@ import Link from "next/link";
 import { useState } from "react";
 import styles from "../styles/SongsList.module.scss";
 
-const SongsList = () => {
-  interface Song {
-    title: string;
-    url: string;
-  }
+interface Song {
+  title: string;
+  url: string;
+}
 
-  let songs: Song[];
-  let setSongs: any;
-  [songs, setSongs] = useState([
+const SongsList = () => {
+  const [songs, setSongs] = useState<Song[]>([
     {
       title: "Nirvana",
       url: "https://www.nme.com/wp-content/uploads/2020/10/GettyImages-86132259-696x442.jpg",

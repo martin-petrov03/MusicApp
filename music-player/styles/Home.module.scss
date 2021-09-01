@@ -1,9 +1,33 @@
 .container {
   text-align: center;
 
-  .search {
-    margin: 2em 0;
-    padding: 0.5em 2em;
+  .searchSection {
+    display: flex;
+    margin: 3em 0;
+
+    .icon {
+      width: 2em;
+      height: 2em;
+      padding-top: 0.4em;
+      line-height: 2em;
+      margin-left: auto;
+    }
+
+    svg:hover {
+      fill: red;
+    }
+
+    .search {
+      border-radius: 2em;
+      width: 20em;
+      height: 3em;
+      padding-left: 1em;
+      margin-right: auto;
+    }
+
+    .search:focus {
+      outline: none;
+    }
   }
 
   div {
