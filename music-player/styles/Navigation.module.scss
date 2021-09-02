@@ -9,17 +9,22 @@
     }
   }
 
+  div {
+    display: flex;
+  }
+
   .icon {
     padding-top: 1em;
     line-height: 2em;
-    width: 2.5em;
-    height: 2.5em;
+    width: 2.8em;
+    height: 2.8em;
   }
 
   li {
     list-style: none;
     margin-left: 0.5em;
     margin-top: 1em;
+    font-size: 1.2em;
   }
 
   .link:hover {

@@ -5,7 +5,7 @@ import styles from "../../styles/Song.module.scss";
 const Song: NextPage = () => {
   return (
     <div className={styles.container}>
-      <main className={styles.main}>
+      <div className={styles.main}>
         <h1 className={styles.title}>
           Welcome to <a href="#">Music Player!</a>
         </h1>
@@ -22,7 +22,7 @@ const Song: NextPage = () => {
             </div>
           </div>
         </div>
-      </main>
+      </div>
     </div>
   );
 };
