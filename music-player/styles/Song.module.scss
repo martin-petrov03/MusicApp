@@ -82,7 +82,7 @@
         align-items: center;
         flex-direction: row;
 
-        button {
+        .songBtn {
           width: 5em;
           height: 5em;
           padding: 0 auto;
@@ -90,12 +90,34 @@
           background-color: none;
           border-radius: 50%;
           border: 0.7em solid $text-color;
+
+          svg {
+            width: 2.5em;
+            height: 2.5em;
+          }
         }
 
         //play & pause button
-        button:nth-child(2) {
+        .songBtn:nth-child(2) {
           width: 8em;
           height: 8em;
+
+          svg {
+            width: 4em;
+            height: 4em;
+          }
+        }
+
+        .songBtn:nth-child(3) {
+          svg {
+            padding-left: 0.3em;
+          }
+        }
+
+        .songBtn:hover {
+          svg {
+            fill: $text-hover;
+          }
         }
       }
 

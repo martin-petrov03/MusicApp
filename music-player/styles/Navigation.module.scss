@@ -1,11 +1,13 @@
+@import "./variables.scss";
+
 .links {
   .link:hover {
     svg {
-      fill: hsl(0, 0, 60%);
+      fill: $text-hover;
     }
 
     li {
-      color: hsl(0, 0, 60%);
+      color: $text-hover;
     }
   }
 
@@ -28,6 +30,6 @@
   }
 
   .link:hover {
-    color: hsl(0, 0, 60%);
+    color: $text-hover;
   }
 }
