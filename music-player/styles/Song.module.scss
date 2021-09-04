@@ -2,18 +2,17 @@
 
 .container {
   min-height: 100vh;
-  padding: 0 0.5rem;
+  height: 100vh;
+  width: 100em;
   margin: 1em 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
   color: $text-color;
 }
 
 .main {
-  flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -39,7 +38,6 @@
   }
 
   .content {
-    width: 100vw;
     display: flex;
     justify-content: space-between;
     flex-direction: row;

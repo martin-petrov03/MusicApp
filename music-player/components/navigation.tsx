@@ -1,7 +1,5 @@
 import Link from "next/link";
-import Image from "next/image";
 import styles from "../styles/Navigation.module.scss";
-import { Fragment } from "react";
 
 const Navigation = () => {
   return (

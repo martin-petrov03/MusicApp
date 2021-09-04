@@ -1,6 +1,8 @@
 @import "./variables.scss";
 
 .links {
+  margin-top: 10em;
+
   .link:hover {
     svg {
       fill: $text-hover;

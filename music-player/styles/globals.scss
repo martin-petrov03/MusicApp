@@ -14,3 +14,9 @@ a {
 * {
   box-sizing: border-box;
 }
+
+#root {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
