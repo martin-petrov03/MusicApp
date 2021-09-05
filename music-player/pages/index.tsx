@@ -1,6 +1,5 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import { Search } from "../components/index";
 import { SongsList } from "../components/index";
 import styles from "../styles/Home.module.scss";
 
@@ -19,7 +18,6 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className={styles.container}>
-        <Search />
         <div>
           <h1>Trending Song</h1>
         </div>
