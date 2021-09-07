@@ -1,13 +1,7 @@
 @import "./variables.scss";
 
 .container {
-  width: 100em;
   margin-top: 0.5em;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: $text-color;
 
   .title {
     margin: 0;

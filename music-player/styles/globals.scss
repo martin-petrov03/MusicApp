@@ -1,3 +1,5 @@
+@import "./variables.scss";
+
 html,
 body {
   padding: 0;
@@ -19,4 +21,12 @@ a {
   display: flex;
   justify-content: space-between;
   flex-direction: row;
+}
+
+.component {
+  width: 100em;
+  height: 25em;
+  display: flex;
+  flex-direction: column;
+  color: $text-color;
 }

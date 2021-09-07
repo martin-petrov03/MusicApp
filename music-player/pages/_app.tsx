@@ -9,7 +9,9 @@ function App({ Component, pageProps }: AppProps) {
       <Header />
       <div id="content">
         <Navigation />
-        <Component {...pageProps} />
+        <div className="component">
+          <Component {...pageProps} />
+        </div>
       </div>
     </div>
   );
