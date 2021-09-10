@@ -1,9 +1,15 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import { SongsList } from "../components/index";
+import { getSongs } from "../utils/db";
 import styles from "../styles/Home.module.scss";
 
 const Home: NextPage = () => {
+  const getItems = async () => {
+    const songs = await getSongs();
+    console.log(songs);
+  };
+
   return (
     <div>
       <Head>
@@ -22,6 +28,7 @@ const Home: NextPage = () => {
           <h1>Trending Song</h1>
         </div>
       </div>
+      <button onClick={getItems}>+</button>
       <SongsList />
     </div>
   );
