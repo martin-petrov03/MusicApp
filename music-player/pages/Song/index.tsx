@@ -12,7 +12,6 @@ const Song: NextPage = () => {
             src="https://i.ytimg.com/vi/EqPtz5qN7HM/maxresdefault.jpg"
             alt="song"
           />
-
           <div className={styles.controlPanel}>
             <button className={styles.songBtn}>
               <svg viewBox="0 0 24 24">

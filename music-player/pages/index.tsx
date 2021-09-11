@@ -27,7 +27,7 @@ const Home: NextPage<Props> = (props) => {
       </Head>
       <div className={styles.container}>
         <div>
-          <h1>Trending Song</h1>
+          <h1>Trending Songs</h1>
         </div>
       </div>
       <SongsList songs={props.songs} />

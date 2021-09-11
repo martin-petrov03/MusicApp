@@ -1,25 +1,25 @@
 .container {
   h1 {
-    margin-left: 5em;
+    margin-left: 3em;
   }
+}
 
-  .playlists {
-    display: flex;
-    flex-flow: row wrap;
-    justify-items: center;
-    flex-direction: row;
-    text-align: center;
-    margin: 4em auto;
-    margin-right: 0;
-    width: 86%;
+.playlists {
+  display: flex;
+  flex-flow: row wrap;
+  justify-items: center;
+  flex-direction: row;
+  text-align: center;
+  margin: 4em auto;
+  margin-right: 0;
+  width: 90%;
 
-    .playlist {
-      margin: 0 1em;
+  .playlist {
+    margin: 0 1em;
 
-      img {
-        width: 10em;
-        height: 10em;
-      }
+    img {
+      width: 10em;
+      height: 10em;
     }
   }
 }
