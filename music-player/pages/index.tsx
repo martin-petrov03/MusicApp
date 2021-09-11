@@ -2,13 +2,15 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import { SongsList } from "../components/index";
 import { getSongs } from "../utils/db";
+import SongInterface from "../utils/interfaces/Song";
 import styles from "../styles/Home.module.scss";
 
-const Home: NextPage = () => {
-  const getItems = async () => {
-    const songs = await getSongs();
-    console.log(songs);
-  };
+interface Props {
+  songs: SongInterface[];
+}
+
+const Home: NextPage<Props> = (props) => {
+  const songs = props.songs;
 
   return (
     <div>
@@ -28,10 +30,23 @@ const Home: NextPage = () => {
           <h1>Trending Song</h1>
         </div>
       </div>
-      <button onClick={getItems}>+</button>
-      <SongsList />
+      <SongsList songs={props.songs} />
     </div>
   );
 };
 
 export default Home;
+
+export async function getStaticProps() {
+  const songs = await getSongs();
+
+  return {
+    props: {
+      songs: songs.map((song) => ({
+        name: song.name,
+        url: song.url,
+      })),
+    },
+    revalidate: 1,
+  };
+}
