@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { useState } from "react";
-import styles from "../styles/ArtistsList.module.scss";
+import styles from "../styles/Artists.module.scss";
 
 interface Artist {
   name: string;
@@ -10,24 +10,24 @@ interface Artist {
 const ArtistsList = () => {
   const [artists, setArtists] = useState<Artist[]>([
     {
-      name: "sda",
-      url: "https://media.gq.com/photos/5ae3925b3fb87856d8a5cdf6/16:9/w_2560%2Cc_limit/Road-Trip-Playlist-GQ-April-2018-042718-3x2.png",
+      name: "Alice",
+      url: "https://www.masteroilpainting.com/wp-content/uploads/2018/01/AdobeStock_179466839-1024x683.jpeg",
     },
     {
-      name: "sda",
-      url: "https://media.gq.com/photos/5ae3925b3fb87856d8a5cdf6/16:9/w_2560%2Cc_limit/Road-Trip-Playlist-GQ-April-2018-042718-3x2.png",
+      name: "Lena",
+      url: "https://www.masteroilpainting.com/wp-content/uploads/2018/01/AdobeStock_179466839-1024x683.jpeg",
     },
     {
-      name: "sda",
-      url: "https://media.gq.com/photos/5ae3925b3fb87856d8a5cdf6/16:9/w_2560%2Cc_limit/Road-Trip-Playlist-GQ-April-2018-042718-3x2.png",
+      name: "Emi",
+      url: "https://www.masteroilpainting.com/wp-content/uploads/2018/01/AdobeStock_179466839-1024x683.jpeg",
     },
   ]);
 
   return (
-    <div className={styles.container}>
+    <div className={styles.artists}>
       {artists.map(function (s, idx) {
         return (
-          <div className={styles.song} key={idx}>
+          <div className={styles.artist} key={idx}>
             <Link href="/artist">
               <img src={s.url} alt={s.name} />
             </Link>
