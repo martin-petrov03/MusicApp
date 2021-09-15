@@ -1,7 +1,7 @@
-interface Artist {
+interface Artists {
   id: number;
   name: string;
   url: string;
 }
 
-export default Artist;
+export default Artists;
