@@ -2,7 +2,7 @@ import type { NextPage } from "next";
 import { useState } from "react";
 import { ArtistsList } from "../../components/index";
 import ArtistDetailsInterface from "../../utils/interfaces/ArtistDetails";
-import styles from "../../styles/Artists.module.scss";
+import styles from "../../styles/Artist.module.scss";
 
 interface IProps extends React.ClassAttributes<ArtistDetailsInterface> {
   artist: string;
@@ -16,18 +16,17 @@ const Artist: NextPage<IProps> = (props: IProps) => {
     <div>
       <div className={styles.container}>
         <div key={artist.id}>
-          <h1>{artist.id}</h1>
-          <h1>{artist.name}</h1>
-          <h4>{artist.age}</h4>
+          <h2>Name: {artist.name}</h2>
+          <h4>Age: {artist.age}</h4>
           <img src={artist.url} alt={artist.name} />
-          <ul>
+          <h4>Top 5 songs:</h4>
+          <ol className={styles.topSongs}>
             {artist.top5Songs.map((s, idx) => (
               <li key={idx}>{s}</li>
             ))}
-          </ul>
+          </ol>
         </div>
       </div>
-      <ArtistsList />
     </div>
   );
 };

@@ -18,10 +18,7 @@ const Home: NextPage<Props> = (props) => {
         <title>Music Player</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="author" content="Martin Petrov" />
-        <meta
-          name="description"
-          content="Free Web tutorials for HTML and CSS"
-        />
+        <meta name="description" content="Music Player" />
         <meta name="keywords" content="Next, Music-Player, music-player" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
