@@ -6,10 +6,7 @@ const Header = () => {
     <div>
       <div className={styles.header}>
         <div className={styles.logo}>
-          <img
-            src="https://thumbs.dreamstime.com/z/music-concept-vector-linear-icon-isolated-transparent-backgro-background-transparency-outline-style-130079162.jpg"
-            alt="logo"
-          />
+          <img src="/images/logo.png" alt="logo" />
         </div>
         <div className={styles.searchBox}>
           <Search />

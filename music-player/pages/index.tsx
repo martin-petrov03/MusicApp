@@ -44,6 +44,6 @@ export async function getStaticProps() {
         url: song.url,
       })),
     },
-    revalidate: 1,
+    revalidate: 5,
   };
 }
