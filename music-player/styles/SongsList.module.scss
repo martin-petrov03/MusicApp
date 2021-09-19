@@ -1,12 +1,11 @@
-.container {
+.songs {
   display: flex;
   flex-flow: row wrap;
   justify-items: center;
   flex-direction: row;
   text-align: center;
   margin: 0 auto;
-  margin-right: 0;
-  width: 92%;
+  width: 90%;
 
   .song {
     margin: 0 1em;
@@ -15,5 +14,12 @@
       width: 10em;
       height: 10em;
     }
+  }
+}
+
+@media only screen and (max-width: 740px) {
+  .songs {
+    display: block;
+    margin: 0 auto;
   }
 }

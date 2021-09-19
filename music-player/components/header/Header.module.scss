@@ -16,3 +16,20 @@
     margin: 0 auto;
   }
 }
+
+@media only screen and (max-width: 740px) {
+  .header {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+
+    .logo {
+      margin: 1em 0 0 0;
+    }
+
+    .searchBox {
+      width: 60%;
+      margin: 0 auto;
+    }
+  }
+}

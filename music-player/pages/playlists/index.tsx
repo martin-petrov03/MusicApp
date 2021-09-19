@@ -19,7 +19,7 @@ const Playlists: NextPage = () => {
       </Head>
       <div className={styles.container}>
         <div>
-          <h1>Trending Playlists</h1>
+          <h1>Playlists</h1>
         </div>
       </div>
       <Playlist />

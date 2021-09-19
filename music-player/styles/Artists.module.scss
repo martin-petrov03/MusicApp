@@ -10,7 +10,7 @@
   justify-items: center;
   flex-direction: row;
   text-align: center;
-  margin: 4em auto;
+  margin: 0 auto;
   margin-right: 0;
   width: 90%;
 
@@ -20,6 +20,23 @@
     img {
       width: 10em;
       height: 10em;
+    }
+  }
+}
+
+@media only screen and (max-width: 740px) {
+  .container {
+    h1 {
+      margin: 1em auto;
+    }
+  }
+
+  .artists {
+    display: block;
+    margin: 0 auto;
+
+    .artist {
+      margin: 0;
     }
   }
 }

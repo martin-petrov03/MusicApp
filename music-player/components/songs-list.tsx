@@ -8,7 +8,7 @@ interface Props extends React.ClassAttributes<any> {
 
 const SongsList = (songs: Props) => {
   return (
-    <div className={styles.container}>
+    <div className={styles.songs}>
       {songs.songs.map(function (s, idx) {
         return (
           <div className={styles.song} key={idx}>
