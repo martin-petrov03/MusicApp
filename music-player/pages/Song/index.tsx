@@ -1,7 +1,17 @@
 import type { NextPage } from "next";
+import { getSongUrl } from "../../utils/db";
+import SongInterface from "../../utils/interfaces/Song";
 import styles from "../../styles/Song.module.scss";
 
-const Song: NextPage = () => {
+interface Props {
+  song: SongInterface;
+  songUrl: string;
+}
+
+const Song: NextPage<Props> = (props) => {
+  const song = props.song;
+  const songUrl = props.songUrl;
+
   return (
     <div className={styles.container}>
       <div className={styles.content}>
@@ -12,6 +22,10 @@ const Song: NextPage = () => {
             src="https://i.ytimg.com/vi/EqPtz5qN7HM/maxresdefault.jpg"
             alt="song"
           />
+          <audio controls src={songUrl} autoPlay>
+            Your browser does not support the
+            <code>audio</code> element.
+          </audio>
           <div className={styles.controlPanel}>
             <button className={styles.songBtn}>
               <svg viewBox="0 0 24 24">
@@ -37,3 +51,13 @@ const Song: NextPage = () => {
 };
 
 export default Song;
+
+export async function getStaticProps() {
+  const songUrl = await getSongUrl();
+  return {
+    props: {
+      songUrl,
+    },
+    revalidate: 5,
+  };
+}
