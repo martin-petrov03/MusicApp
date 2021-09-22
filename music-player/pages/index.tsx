@@ -39,6 +39,7 @@ export async function getStaticProps() {
   return {
     props: {
       songs: songs.map((song) => ({
+        id: song.id,
         name: song.name,
         url: song.url,
       })),

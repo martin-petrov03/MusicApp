@@ -1,5 +1,5 @@
 import type { NextPage } from "next";
-import { getSongUrl } from "../../utils/db";
+import { getSong, getSongUrl } from "../../utils/db";
 import SongInterface from "../../utils/interfaces/Song";
 import styles from "../../styles/Song.module.scss";
 
@@ -11,6 +11,7 @@ interface Props {
 const Song: NextPage<Props> = (props) => {
   const song = props.song;
   const songUrl = props.songUrl;
+  console.log(song);
 
   return (
     <div className={styles.container}>
@@ -52,11 +53,19 @@ const Song: NextPage<Props> = (props) => {
 
 export default Song;
 
-export async function getStaticProps() {
+interface IConteAxt {
+  params: { id: number };
+}
+
+export async function getStaticProps(context: IContext) {
+  const id = context.params.id;
   const songUrl = await getSongUrl();
+  const song = await getSong(id);
+
   return {
     props: {
       songUrl,
+      song,
     },
     revalidate: 5,
   };

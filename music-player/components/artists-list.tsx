@@ -26,6 +26,7 @@ const ArtistsList = () => {
     <div className={styles.artists}>
       {artists.map(function (s, idx) {
         const artistLink = `/artists/${s.id}`;
+
         return (
           <div className={styles.artist} key={idx}>
             <Link href={artistLink}>
