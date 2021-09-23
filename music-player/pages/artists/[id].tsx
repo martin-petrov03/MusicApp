@@ -74,7 +74,7 @@ export async function getStaticPaths() {
   const paths = artists.map((artist) => ({
     params: { id: artist.id.toString() },
   }));
-  return { paths, fallback: false };
+  return { paths, fallback: "blocking" };
 }
 
 export default Artist;

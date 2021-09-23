@@ -1,7 +1,7 @@
 interface Song {
   id: number;
   name: string;
-  url: string;
+  imageUrl: string;
 }
 
 export default Song;

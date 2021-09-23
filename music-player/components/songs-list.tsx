@@ -10,12 +10,12 @@ const SongsList = (songs: Props) => {
   return (
     <div className={styles.songs}>
       {songs.songs.map(function (s, idx) {
-        //const songLink = `/songs/${s.id}`;
+        const songLink = `/songs/${s.id}`;
 
         return (
           <div className={styles.song} key={idx}>
-            <Link href="/songs">
-              <img src={s.url} alt={s.name} />
+            <Link href={songLink}>
+              <img src={s.imageUrl} alt={s.name} />
             </Link>
             <p>{s.name}</p>
           </div>

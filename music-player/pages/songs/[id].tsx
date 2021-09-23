@@ -1,29 +1,23 @@
 import type { NextPage } from "next";
-import { getSong, getSongUrl } from "../../utils/db";
-import SongInterface from "../../utils/interfaces/Song";
+import { getSongs, getSong, getSongUrl } from "../../utils/db";
+import SongDetailsInterface from "../../utils/interfaces/SongDetailsInterface";
 import styles from "../../styles/Song.module.scss";
 
 interface Props {
-  song: SongInterface;
-  songUrl: string;
+  song: SongDetailsInterface;
 }
 
 const Song: NextPage<Props> = (props) => {
   const song = props.song;
-  const songUrl = props.songUrl;
-  console.log(song);
 
   return (
     <div className={styles.container}>
       <div className={styles.content}>
         <div className={styles.card}>
-          <h2>Song title &rarr;</h2>
+          <h2>{song.name} &rarr;</h2>
           <p>Content</p>
-          <img
-            src="https://i.ytimg.com/vi/EqPtz5qN7HM/maxresdefault.jpg"
-            alt="song"
-          />
-          <audio controls src={songUrl} autoPlay>
+          <img src={song.imageUrl} alt={song.name} />
+          <audio controls src={song.songUrl} autoPlay>
             Your browser does not support the
             <code>audio</code> element.
           </audio>
@@ -53,20 +47,28 @@ const Song: NextPage<Props> = (props) => {
 
 export default Song;
 
-interface IConteAxt {
+interface IContext {
   params: { id: number };
 }
 
 export async function getStaticProps(context: IContext) {
-  const id = context.params.id;
+  const id = Number(context.params.id);
   const songUrl = await getSongUrl();
   const song = await getSong(id);
+  console.log(song);
 
   return {
     props: {
-      songUrl,
-      song,
+      song: { ...song, songUrl },
     },
     revalidate: 5,
   };
+}
+
+export async function getStaticPaths() {
+  const songs = await getSongs();
+  const paths = songs.map((song) => ({
+    params: { id: song.id.toString() },
+  }));
+  return { paths, fallback: 'blocking' };
 }

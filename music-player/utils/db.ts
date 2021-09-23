@@ -1,7 +1,6 @@
 import { app } from "./firebase";
 import { getFirestore, collection, getDocs } from "firebase/firestore/lite";
 import { getStorage, ref, getDownloadURL } from "firebase/storage";
-import { SongsList } from "../components";
 
 const db = getFirestore(app);
 

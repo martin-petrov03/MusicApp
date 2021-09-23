@@ -41,7 +41,7 @@ export async function getStaticProps() {
       songs: songs.map((song) => ({
         id: song.id,
         name: song.name,
-        url: song.url,
+        imageUrl: song.imageUrl,
       })),
     },
     revalidate: 5,
