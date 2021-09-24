@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import { SongsList } from "../components/index";
+import { MetaTags, SongsList } from "../components/index";
 import { getSongs } from "../utils/db";
 import SongInterface from "../utils/interfaces/Song";
 import styles from "../styles/Home.module.scss";
@@ -16,10 +16,7 @@ const Home: NextPage<Props> = (props) => {
     <div>
       <Head>
         <title>Music Player</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="author" content="Martin Petrov" />
-        <meta name="description" content="Music Player" />
-        <meta name="keywords" content="Next, Music-Player, music-player" />
+        <MetaTags description="Music Player Home Page" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className={styles.container}>

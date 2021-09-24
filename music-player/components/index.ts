@@ -1,4 +1,5 @@
 //exports all components
+export { default as MetaTags } from "./meta-tags";
 export { default as Navigation } from "./navigation";
 export { default as SongsList } from "./songs-list";
 export { default as Playlist } from "./playlists";
