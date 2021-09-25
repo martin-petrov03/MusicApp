@@ -1,4 +1,5 @@
 import type { NextPage } from "next";
+import { MetaTags } from "../../components/index";
 import { getSongs, getSong, getSongUrl } from "../../utils/db";
 import SongDetailsInterface from "../../utils/interfaces/SongDetailsInterface";
 import styles from "../../styles/Song.module.scss";
@@ -12,6 +13,7 @@ const Song: NextPage<Props> = (props) => {
 
   return (
     <div className={styles.container}>
+      <MetaTags description="Song details page" />
       <div className={styles.content}>
         <div className={styles.card}>
           <h2>{song.name} &rarr;</h2>
@@ -70,5 +72,5 @@ export async function getStaticPaths() {
   const paths = songs.map((song) => ({
     params: { id: song.id.toString() },
   }));
-  return { paths, fallback: 'blocking' };
+  return { paths, fallback: "blocking" };
 }

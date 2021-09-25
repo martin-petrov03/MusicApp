@@ -1,9 +1,11 @@
 import type { NextPage } from "next";
+import { MetaTags } from "../../components/index";
 import styles from "../../styles/AddPlaylist.module.scss";
 
 const AddPlaylist: NextPage = () => {
   return (
     <div className={styles.container}>
+      <MetaTags />
       <h2>Add Playlist</h2>
       <form action="POST" className={styles.form}>
         <label htmlFor="title"></label>
