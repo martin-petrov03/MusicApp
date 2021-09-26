@@ -1,6 +1,6 @@
 import Link from "next/link";
-import SongInterface from "../utils/interfaces/Song";
-import styles from "../styles/SongsList.module.scss";
+import SongInterface from "../../utils/interfaces/Song";
+import styles from "./SongsList.module.scss";
 
 interface Props extends React.ClassAttributes<any> {
   songs: SongInterface[];

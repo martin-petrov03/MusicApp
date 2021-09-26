@@ -1,10 +1,4 @@
-.container {
-  h1 {
-    margin-left: 3em;
-  }
-}
-
-.artists {
+.playlists {
   display: flex;
   flex-flow: row wrap;
   justify-items: center;
@@ -14,7 +8,7 @@
   margin-right: 0;
   width: 90%;
 
-  .artist {
+  .playlist {
     margin: 0 1em;
 
     img {
@@ -25,17 +19,11 @@
 }
 
 @media only screen and (max-width: 740px) {
-  .container {
-    h1 {
-      margin: 1em auto;
-    }
-  }
-
-  .artists {
+  .playlists {
     display: block;
     margin: 0 auto;
 
-    .artist {
+    .playlist {
       margin: 0;
     }
   }

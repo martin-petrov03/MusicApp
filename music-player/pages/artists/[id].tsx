@@ -1,8 +1,8 @@
 import type { NextPage } from "next";
 import { useState } from "react";
-import { ArtistsList } from "../../components/index";
+import { MetaTags } from "../../components/index";
 import ArtistDetailsInterface from "../../utils/interfaces/ArtistDetails";
-import styles from "../../styles/Artist.module.scss";
+import styles from "./Artist.module.scss";
 
 interface IProps extends React.ClassAttributes<ArtistDetailsInterface> {
   artist: string;
@@ -14,6 +14,7 @@ const Artist: NextPage<IProps> = (props: IProps) => {
 
   return (
     <div>
+      <MetaTags description="Artist details page" />
       <div className={styles.container}>
         <div key={artist.id}>
           <h2>Name: {artist.name}</h2>

@@ -1,11 +1,12 @@
 import type { NextPage } from "next";
-import Head from "next/head";
+import { MetaTags } from "../../components/index";
 import { Playlist } from "../../components/index";
-import styles from "../../styles/Playlists.module.scss";
+import styles from "./Playlists.module.scss";
 
 const Playlists: NextPage = () => {
   return (
     <div>
+      <MetaTags description="Playlists page" />
       <div className={styles.container}>
         <div>
           <h1>Playlists</h1>

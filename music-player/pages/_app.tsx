@@ -1,5 +1,5 @@
 import type { AppProps } from "next/app";
-import Navigation from "../components/navigation";
+import Navigation from "../components/navigation/navigation";
 import Header from "../components/header";
 import "../styles/globals.scss";
 

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { useState } from "react";
-import ArtistsInterface from "../utils/interfaces/Artists";
-import styles from "../styles/Artists.module.scss";
+import ArtistsInterface from "../../utils/interfaces/Artists";
+import styles from "./ArtistsList.module.scss";
 
 const ArtistsList = () => {
   const [artists, setArtists] = useState<ArtistsInterface[]>([

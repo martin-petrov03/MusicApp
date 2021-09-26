@@ -2,7 +2,7 @@ import type { NextPage } from "next";
 import { MetaTags } from "../../components/index";
 import { getSongs, getSong, getSongUrl } from "../../utils/db";
 import SongDetailsInterface from "../../utils/interfaces/SongDetailsInterface";
-import styles from "../../styles/Song.module.scss";
+import styles from "./Song.module.scss";
 
 interface Props {
   song: SongDetailsInterface;
@@ -57,7 +57,6 @@ export async function getStaticProps(context: IContext) {
   const id = Number(context.params.id);
   const songUrl = await getSongUrl();
   const song = await getSong(id);
-  console.log(song);
 
   return {
     props: {

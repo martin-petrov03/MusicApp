@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { useState } from "react";
-import styles from "../styles/Playlists.module.scss";
+import styles from "./Playlists.module.scss";
 
 interface Playlist {
   title: string;

@@ -1,10 +1,11 @@
 import type { NextPage } from "next";
-import { ArtistsList } from "../../components/index";
-import styles from "../../styles/Artists.module.scss";
+import { ArtistsList, MetaTags } from "../../components/index";
+import styles from "./Artists.module.scss";
 
 const Artists: NextPage = () => {
   return (
     <div>
+      <MetaTags description="Artists page" />
       <div className={styles.container}>
         <div>
           <h1>Artists</h1>
