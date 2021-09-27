@@ -4,7 +4,7 @@ const MetaTags = ({ title, description }: any) => (
   <Head>
     <title>{title}</title>
     <link rel="icon" href="/favicon.ico" />
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta httpEquiv="content-type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="author" content="Martin Petrov" />
     <meta name="description" content={description} />

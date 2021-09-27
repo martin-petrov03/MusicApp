@@ -1,5 +1,4 @@
 import type { NextPage } from "next";
-import Head from "next/head";
 import { MetaTags, SongsList } from "../components/index";
 import { getSongs } from "../utils/db";
 import SongInterface from "../utils/interfaces/Song";

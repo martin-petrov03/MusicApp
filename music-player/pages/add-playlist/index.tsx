@@ -1,5 +1,5 @@
 import type { NextPage } from "next";
-import { MetaTags } from "../../components/index";
+import { MetaTags } from "../../../components/index";
 import styles from "./AddPlaylist.module.scss";
 
 const AddPlaylist: NextPage = () => {
