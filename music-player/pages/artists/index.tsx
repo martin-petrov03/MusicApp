@@ -5,7 +5,7 @@ import styles from "./Artists.module.scss";
 const Artists: NextPage = () => {
   return (
     <div>
-      <MetaTags description="Artists page" />
+      <MetaTags title="Artists" description="Artists page" />
       <div className={styles.container}>
         <div>
           <h1>Artists</h1>

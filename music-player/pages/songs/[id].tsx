@@ -13,7 +13,7 @@ const Song: NextPage<Props> = (props) => {
 
   return (
     <div className={styles.container}>
-      <MetaTags description="Song details page" />
+      <MetaTags title="Song Details" description="Song details page" />
       <div className={styles.content}>
         <div className={styles.card}>
           <h2>{song.name} &rarr;</h2>

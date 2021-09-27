@@ -14,7 +14,7 @@ const Artist: NextPage<IProps> = (props: IProps) => {
 
   return (
     <div>
-      <MetaTags description="Artist details page" />
+      <MetaTags title="Artist Details" description="Artist details page" />
       <div className={styles.container}>
         <div key={artist.id}>
           <h2>Name: {artist.name}</h2>

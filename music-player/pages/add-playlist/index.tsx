@@ -5,7 +5,7 @@ import styles from "./AddPlaylist.module.scss";
 const AddPlaylist: NextPage = () => {
   return (
     <div className={styles.container}>
-      <MetaTags description="App playlist page" />
+      <MetaTags title="Add Playlist" description="App playlist page" />
       <h2>Add Playlist</h2>
       <form action="POST" className={styles.form}>
         <label htmlFor="title"></label>

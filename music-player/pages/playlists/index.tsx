@@ -6,7 +6,7 @@ import styles from "./Playlists.module.scss";
 const Playlists: NextPage = () => {
   return (
     <div>
-      <MetaTags description="Playlists page" />
+      <MetaTags title="Playlists" description="Playlists page" />
       <div className={styles.container}>
         <div>
           <h1>Playlists</h1>

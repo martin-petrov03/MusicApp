@@ -14,11 +14,7 @@ const Home: NextPage<Props> = (props) => {
 
   return (
     <div>
-      <Head>
-        <title>Music Player</title>
-        <MetaTags description="Music Player Home Page" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <MetaTags title="Home Page" description="Music Player Home Page" />
       <div className={styles.container}>
         <div>
           <h1>Trending Songs</h1>
