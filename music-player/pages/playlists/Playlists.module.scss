@@ -1,6 +1,17 @@
+@import "./variables.scss";
+
 .container {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+
   h1 {
     margin-left: 3em;
+    text-align: start;
+  }
+
+  svg:hover {
+    fill: red; // $text-hover;
   }
 }
 
