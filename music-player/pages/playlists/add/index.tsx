@@ -1,16 +1,18 @@
 import type { NextPage } from "next";
 import { useState } from "react";
 import { MetaTags } from "../../../components/index";
+import { addPlaylist } from "../../../utils/db";
+import PlaylistInterface from "../../../utils/interfaces/Playlist";
 import styles from "./AddPlaylist.module.scss";
 
 const AddPlaylist: NextPage = () => {
-  const [playlist, setPlaylist] = useState<Object>({});
+  const [playlist, setPlaylist] = useState<PlaylistInterface>();
   const [title, setTitle] = useState<string>("");
 
-  const handleSubmit = (event: any) => {
+  const handleSubmit = async (event: any) => {
     event.preventDefault();
-    setPlaylist({ title });
-    console.log(playlist);
+    const newPlaylist = { id: 1, title, imageUrl: "http://da" };
+    addPlaylist(newPlaylist);
   };
 
   return (

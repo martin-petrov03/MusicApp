@@ -1,6 +1,12 @@
 import { app } from "./firebase";
-import { getFirestore, collection, getDocs } from "firebase/firestore/lite";
+import {
+  getFirestore,
+  collection,
+  getDocs,
+  addDoc,
+} from "firebase/firestore/lite";
 import { getStorage, ref, getDownloadURL } from "firebase/storage";
+import PlaylistInterface from "./interfaces/Playlist";
 
 const db = getFirestore(app);
 
@@ -32,4 +38,13 @@ const getSongUrl = async () => {
   }
 };
 
-export { getSongs, getSong, getSongUrl };
+const addPlaylist = async (newPlaylist: PlaylistInterface) => {
+  const playlistsCol = collection(db, "playlists");
+  try {
+    await addDoc(playlistsCol, newPlaylist);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export { getSongs, getSong, getSongUrl, addPlaylist };
