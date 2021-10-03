@@ -1,4 +1,5 @@
 import type { NextPage } from "next";
+import { useRouter } from "next/router";
 import { useState } from "react";
 import { MetaTags } from "../../../components/index";
 import { addPlaylist } from "../../../utils/db";
@@ -6,6 +7,7 @@ import PlaylistInterface from "../../../utils/interfaces/Playlist";
 import styles from "./AddPlaylist.module.scss";
 
 const AddPlaylist: NextPage = () => {
+  const router = useRouter();
   const [playlist, setPlaylist] = useState<PlaylistInterface>();
   const [title, setTitle] = useState<string>("");
 
@@ -13,6 +15,7 @@ const AddPlaylist: NextPage = () => {
     event.preventDefault();
     const newPlaylist = { id: 1, title, imageUrl: "http://da" };
     addPlaylist(newPlaylist);
+    router.back();
   };
 
   return (
