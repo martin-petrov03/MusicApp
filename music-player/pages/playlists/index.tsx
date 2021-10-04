@@ -2,9 +2,17 @@ import type { NextPage } from "next";
 import Link from "next/link";
 import { MetaTags } from "../../components/index";
 import { Playlist } from "../../components/index";
+import { getPlaylists } from "../../utils/db";
+import PlaylistInterface from "../../utils/interfaces/Playlist";
 import styles from "./Playlists.module.scss";
 
-const Playlists: NextPage = () => {
+interface Props {
+  playlists: PlaylistInterface[];
+}
+
+const Playlists: NextPage<Props> = (props) => {
+  const playlists = props.playlists;
+
   return (
     <div>
       <MetaTags title="Playlists" description="Playlists page" />
@@ -20,9 +28,24 @@ const Playlists: NextPage = () => {
           <h1>Playlists</h1>
         </div>
       </div>
-      <Playlist />
+      <Playlist playlists={playlists} />
     </div>
   );
 };
 
 export default Playlists;
+
+export async function getStaticProps() {
+  const playlists = await getPlaylists();
+
+  return {
+    props: {
+      playlists: playlists?.map((playlist) => ({
+        id: playlist.id,
+        title: playlist.title,
+        imageUrl: playlist.imageUrl,
+      })),
+    },
+    revalidate: 5,
+  };
+}

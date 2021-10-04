@@ -28,6 +28,7 @@ export default Home;
 
 export async function getStaticProps() {
   const songs = await getSongs();
+
   return {
     props: {
       songs: songs.map((song) => ({

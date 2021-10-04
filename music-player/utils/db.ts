@@ -47,4 +47,15 @@ const addPlaylist = async (newPlaylist: PlaylistInterface) => {
   }
 };
 
-export { getSongs, getSong, getSongUrl, addPlaylist };
+const getPlaylists = async () => {
+  const playlistsCol = collection(db, "playlists");
+  try {
+    const playlistsSnapshot = await getDocs(playlistsCol);
+    const playlists = playlistsSnapshot.docs.map((doc) => doc.data());
+    return playlists;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export { getSongs, getSong, getSongUrl, addPlaylist, getPlaylists };
