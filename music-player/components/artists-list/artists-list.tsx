@@ -3,25 +3,11 @@ import { useState } from "react";
 import ArtistsInterface from "../../utils/interfaces/Artists";
 import styles from "./ArtistsList.module.scss";
 
-const ArtistsList = () => {
-  const [artists, setArtists] = useState<ArtistsInterface[]>([
-    {
-      id: 1,
-      name: "Alice",
-      url: "https://www.masteroilpainting.com/wp-content/uploads/2018/01/AdobeStock_179466839-1024x683.jpeg",
-    },
-    {
-      id: 2,
-      name: "Lena",
-      url: "https://www.masteroilpainting.com/wp-content/uploads/2018/01/AdobeStock_179466839-1024x683.jpeg",
-    },
-    {
-      id: 3,
-      name: "Emi",
-      url: "https://www.masteroilpainting.com/wp-content/uploads/2018/01/AdobeStock_179466839-1024x683.jpeg",
-    },
-  ]);
+interface Props extends React.ClassAttributes<any> {
+  artists: ArtistsInterface[];
+}
 
+const ArtistsList = (artists: Props) => {
   return (
     <div className={styles.artists}>
       {artists.map(function (s, idx) {
