@@ -6,10 +6,10 @@ interface Props extends React.ClassAttributes<any> {
   playlists: PlaylistInterface[];
 }
 
-const Playlist = (playlists: Props) => {
+const Playlist = ({ playlists }: Props) => {
   return (
     <div className={styles.playlists}>
-      {playlists.playlists.map(function (p, idx) {
+      {playlists.map(function (p, idx) {
         return (
           <div className={styles.playlist} key={idx}>
             <Link href="/song">

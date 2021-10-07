@@ -7,7 +7,7 @@ interface Props extends React.ClassAttributes<any> {
   artists: ArtistsInterface[];
 }
 
-const ArtistsList = (artists: Props) => {
+const ArtistsList = ({ artists }: Props) => {
   return (
     <div className={styles.artists}>
       {artists.map(function (s, idx) {
