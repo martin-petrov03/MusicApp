@@ -68,7 +68,7 @@ export async function getStaticProps(context: IContext) {
 
 export async function getStaticPaths() {
   const songs = await getSongs();
-  const paths = songs.map((song) => ({
+  const paths = songs?.map((song) => ({
     params: { id: song.id.toString() },
   }));
   return { paths, fallback: "blocking" };

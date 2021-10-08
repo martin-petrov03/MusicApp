@@ -33,7 +33,7 @@ const Artist: NextPage<IProps> = (props: IProps) => {
 };
 
 interface IContext {
-  params: { id: string };
+  params: { id: number };
 }
 export async function getStaticProps(context: IContext) {
   //const artist = getArtist();
@@ -57,22 +57,22 @@ export async function getStaticPaths() {
   //const artists = getArtists();
   const artists = [
     {
-      id: "1",
+      id: 1,
       name: "Alice",
       url: "https://www.masteroilpainting.com/wp-content/uploads/2018/01/AdobeStock_179466839-1024x683.jpeg",
     },
     {
-      id: "2",
+      id: 2,
       name: "Lena",
       url: "https://www.masteroilpainting.com/wp-content/uploads/2018/01/AdobeStock_179466839-1024x683.jpeg",
     },
     {
-      id: "3",
+      id: 3,
       name: "Emi",
       url: "https://www.masteroilpainting.com/wp-content/uploads/2018/01/AdobeStock_179466839-1024x683.jpeg",
     },
   ];
-  const paths = artists.map((artist) => ({
+  const paths = await artists?.map((artist) => ({
     params: { id: artist.id.toString() },
   }));
   return { paths, fallback: "blocking" };

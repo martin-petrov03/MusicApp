@@ -10,9 +10,10 @@ const Playlist = ({ playlists }: Props) => {
   return (
     <div className={styles.playlists}>
       {playlists.map(function (p, idx) {
+        const playlistLink = `/playlists/${p.id}`;
         return (
           <div className={styles.playlist} key={idx}>
-            <Link href="/song">
+            <Link href={playlistLink}>
               <img src={p.imageUrl} alt={p.title} />
             </Link>
             <p>{p.title}</p>
