@@ -19,7 +19,7 @@ const getSongs = async () => {
 
 const getSong = async (id: number) => {
   const songs = await getSongs();
-  const song = songs.find((s) => s.id === id);
+  const song = songs?.find((s) => s.id === id);
   return song;
 };
 
@@ -69,4 +69,18 @@ const getPlaylists = async () => {
   }
 };
 
-export { getSongs, getSong, getSongUrl, getArtists, addPlaylist, getPlaylists };
+const getPlaylist = async (id: number) => {
+  const playlists = await getPlaylists();
+  const playlist = playlists?.find((p) => p.id === id);
+  return playlist;
+};
+
+export {
+  getSongs,
+  getSong,
+  getSongUrl,
+  getArtists,
+  addPlaylist,
+  getPlaylists,
+  getPlaylist,
+};

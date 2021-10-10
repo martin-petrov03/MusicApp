@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import { MetaTags } from "../../components/index";
-import { getPlaylists } from "../../utils/db";
+import { getPlaylists, getPlaylist } from "../../utils/db";
 import PlaylistInterface from "../../utils/interfaces/Playlist";
 import styles from "./Playlists.module.scss";
 
@@ -9,17 +9,15 @@ interface IProps extends React.ClassAttributes<PlaylistInterface> {
 }
 
 const Artist: NextPage<IProps> = (props: IProps) => {
-  const playlist = JSON.parse(props.playlist);
+  const playlist = props.playlist;
 
   return (
     <div>
       <MetaTags title="Artist Details" description="Artist details page" />
       <div className={styles.container}>
         <div key={playlist.id}>
-          <h2>Name: {playlist.name}</h2>
-          <h4>Age: {playlist.age}</h4>
-          <img src={playlist.url} alt={playlist.name} />
-          <h4>Top 5 songs:</h4>
+          <h2>Name: {playlist.title}</h2>
+          <img src={playlist.imageUrl} alt={playlist.title} />
         </div>
       </div>
     </div>
@@ -30,8 +28,9 @@ interface IContext {
   params: { id: number };
 }
 export async function getStaticProps(context: IContext) {
-  const playlists = getPlaylists();
-  return { props: { playlists } };
+  const id = Number(context.params.id);
+  const playlist = await getPlaylist(id);
+  return { props: { playlist } };
 }
 
 export async function getStaticPaths() {
