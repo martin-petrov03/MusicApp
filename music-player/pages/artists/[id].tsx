@@ -1,5 +1,6 @@
 import type { NextPage } from "next";
 import { useState } from "react";
+import { getArtist } from "../../utils/db";
 import { MetaTags } from "../../components/index";
 import ArtistDetailsInterface from "../../utils/interfaces/ArtistDetails";
 import styles from "./Artist.module.scss";

@@ -49,6 +49,12 @@ const getArtists = async () => {
   }
 };
 
+const getArtist = async (id: number) => {
+  const artists = await getArtists();
+  const artist = artists?.find((a) => a.id === id);
+  return artist;
+};
+
 const addPlaylist = async (newPlaylist: PlaylistInterface) => {
   const playlistsCol = collection(db, "playlists");
   try {
@@ -80,6 +86,7 @@ export {
   getSong,
   getSongUrl,
   getArtists,
+  getArtist,
   addPlaylist,
   getPlaylists,
   getPlaylist,

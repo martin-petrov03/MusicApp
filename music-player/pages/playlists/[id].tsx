@@ -1,11 +1,11 @@
 import type { NextPage } from "next";
-import { MetaTags } from "../../components/index";
 import { getPlaylists, getPlaylist } from "../../utils/db";
+import { MetaTags } from "../../components/index";
 import PlaylistInterface from "../../utils/interfaces/Playlist";
 import styles from "./Playlists.module.scss";
 
 interface IProps extends React.ClassAttributes<PlaylistInterface> {
-  playlist: string;
+  playlist: PlaylistInterface;
 }
 
 const Artist: NextPage<IProps> = (props: IProps) => {

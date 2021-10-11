@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
-import { MetaTags } from "../../components/index";
 import { getSongs, getSong, getSongUrl } from "../../utils/db";
+import { MetaTags } from "../../components/index";
 import SongDetailsInterface from "../../utils/interfaces/SongDetailsInterface";
 import styles from "./Song.module.scss";
 
