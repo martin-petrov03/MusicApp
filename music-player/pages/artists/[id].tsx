@@ -1,17 +1,16 @@
 import type { NextPage } from "next";
 import { useState } from "react";
-import { getArtist } from "../../utils/db";
+import { getArtists, getArtist } from "../../utils/db";
 import { MetaTags } from "../../components/index";
 import ArtistDetailsInterface from "../../utils/interfaces/ArtistDetails";
 import styles from "./Artist.module.scss";
 
 interface IProps extends React.ClassAttributes<ArtistDetailsInterface> {
-  artist: string;
+  artist: ArtistDetailsInterface;
 }
 
 const Artist: NextPage<IProps> = (props: IProps) => {
-  const artistObj = JSON.parse(props.artist);
-  const [artist, setArtist] = useState<ArtistDetailsInterface>(artistObj);
+  const artist = props.artist;
 
   return (
     <div>
@@ -23,7 +22,7 @@ const Artist: NextPage<IProps> = (props: IProps) => {
           <img src={artist.url} alt={artist.name} />
           <h4>Top 5 songs:</h4>
           <ol className={styles.topSongs}>
-            {artist.top5Songs.map((s, idx) => (
+            {artist?.top5Songs?.map((s, idx) => (
               <li key={idx}>{s}</li>
             ))}
           </ol>
@@ -37,43 +36,26 @@ interface IContext {
   params: { id: number };
 }
 export async function getStaticProps(context: IContext) {
-  //const artist = getArtist();
-  //return { props: { artist } };
-  const id = context.params.id;
-  const artist = JSON.stringify({
-    id,
-    name: "Alice Johnson",
-    age: 28,
-    url: "https://www.masteroilpainting.com/wp-content/uploads/2018/01/AdobeStock_179466839-1024x683.jpeg",
-    top5Songs: ["dsad", "dsadas", "dsada", "dsada", "sdad"],
-  });
-  return {
-    props: {
-      artist,
-    },
-  };
+  const id = Number(context.params.id);
+  const artist = await getArtist(id);
+  return { props: { artist } };
+  // const artist = JSON.stringify({
+  //   id,
+  //   name: "Alice Johnson",
+  //   age: 28,
+  //   url: "https://www.masteroilpainting.com/wp-content/uploads/2018/01/AdobeStock_179466839-1024x683.jpeg",
+  //   top5Songs: ["dsad", "dsadas", "dsada", "dsada", "sdad"],
+  // });
+  // return {
+  //   props: {
+  //     artist,
+  //   },
+  // };
 }
 
 export async function getStaticPaths() {
-  //const artists = getArtists();
-  const artists = [
-    {
-      id: 1,
-      name: "Alice",
-      url: "https://www.masteroilpainting.com/wp-content/uploads/2018/01/AdobeStock_179466839-1024x683.jpeg",
-    },
-    {
-      id: 2,
-      name: "Lena",
-      url: "https://www.masteroilpainting.com/wp-content/uploads/2018/01/AdobeStock_179466839-1024x683.jpeg",
-    },
-    {
-      id: 3,
-      name: "Emi",
-      url: "https://www.masteroilpainting.com/wp-content/uploads/2018/01/AdobeStock_179466839-1024x683.jpeg",
-    },
-  ];
-  const paths = await artists?.map((artist) => ({
+  const artists = await getArtists();
+  const paths = artists?.map((artist) => ({
     params: { id: artist.id.toString() },
   }));
   return { paths, fallback: "blocking" };
