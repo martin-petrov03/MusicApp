@@ -18,7 +18,10 @@ const Artist: NextPage<IProps> = (props: IProps) => {
       <div className={styles.container}>
         <div key={artist.id}>
           <h2>Name: {artist.name}</h2>
-          <h4>Age: {artist.age}</h4>
+          {artist?.artistsNames?.map((n) => (
+            <li>{n}</li>
+          ))}
+          {artist.age ? <h4>Age: {artist.age}</h4> : null}
           <img src={artist.url} alt={artist.name} />
           <h4>Top 5 songs:</h4>
           <ol className={styles.topSongs}>

@@ -1,7 +1,8 @@
 interface ArtistDetails {
   id: string;
   name: string;
-  age: number;
+  artistsNames?: Array<string>; // for groups
+  age?: number;
   url: string;
   top5Songs: Array<string>;
 }
