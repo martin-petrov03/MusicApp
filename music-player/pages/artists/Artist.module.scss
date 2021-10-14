@@ -3,12 +3,21 @@
 .container {
   text-align: center;
 
+  .name {
+    color: $text-color;
+  }
+
+  .name:hover {
+    color: $text-hover;
+  }
+
   img {
     width: 20em;
     height: 20em;
   }
 
   .topSongs {
+    color: $text-color;
     text-align: center;
     list-style-position: inside;
 
