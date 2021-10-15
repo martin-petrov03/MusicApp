@@ -1,5 +1,4 @@
 import type { NextPage } from "next";
-import { useState } from "react";
 import { getArtists, getArtist } from "../../utils/db";
 import { MetaTags } from "../../components/index";
 import ArtistDetailsInterface from "../../utils/interfaces/ArtistDetails";
@@ -17,7 +16,7 @@ const Artist: NextPage<IProps> = (props: IProps) => {
       <MetaTags title="Artist Details" description="Artist details page" />
       <div className={styles.container}>
         <div key={artist.id}>
-          <h2 className={styles.name}>Name: {artist.name}</h2>
+          <h2 className={styles.name}>{artist.name}</h2>
           <p>({artist?.artistsNames?.map((n) => n).join(", ")})</p>
           {artist.age ? <h4>Age: {artist.age}</h4> : null}
           <img src={artist.url} alt={artist.name} />
