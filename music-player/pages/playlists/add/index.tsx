@@ -9,11 +9,13 @@ import styles from "./AddPlaylist.module.scss";
 const AddPlaylist: NextPage = () => {
   const router = useRouter();
   const [playlist, setPlaylist] = useState<PlaylistInterface>();
+
+  const [imageUrl, setImageUrl] = useState<string>("");
   const [title, setTitle] = useState<string>("");
 
   const handleSubmit = async (event: any) => {
     event.preventDefault();
-    const newPlaylist = { id: 1, title, imageUrl: "http://da" };
+    const newPlaylist = { title, imageUrl };
     addPlaylist(newPlaylist);
     router.back();
   };
@@ -29,8 +31,16 @@ const AddPlaylist: NextPage = () => {
           placeholder="Title"
           id="title"
           autoComplete="off"
-          className={styles.titleField}
+          className={styles.inputField}
           onChange={(e) => setTitle(e.target.value)}
+        />
+        <input
+          type="text"
+          placeholder="Url"
+          id="url"
+          autoComplete="off"
+          className={styles.inputField}
+          onChange={(e) => setImageUrl(e.target.value)}
         />
         <br />
         <input
