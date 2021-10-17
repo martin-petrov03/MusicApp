@@ -1,6 +1,7 @@
 import type { NextPage } from "next";
 import { useRouter } from "next/router";
 import { useState } from "react";
+import uniqueString from "unique-string";
 import { MetaTags } from "../../../components/index";
 import { addPlaylist } from "../../../utils/db";
 import PlaylistInterface from "../../../utils/interfaces/Playlist";
@@ -8,14 +9,12 @@ import styles from "./AddPlaylist.module.scss";
 
 const AddPlaylist: NextPage = () => {
   const router = useRouter();
-  const [playlist, setPlaylist] = useState<PlaylistInterface>();
-
   const [imageUrl, setImageUrl] = useState<string>("");
   const [title, setTitle] = useState<string>("");
 
   const handleSubmit = async (event: any) => {
     event.preventDefault();
-    const newPlaylist = { title, imageUrl };
+    const newPlaylist = { id: uniqueString(), title, imageUrl };
     addPlaylist(newPlaylist);
     router.back();
   };
@@ -25,7 +24,7 @@ const AddPlaylist: NextPage = () => {
       <MetaTags title="Add Playlist" description="App playlist page" />
       <h2>Add Playlist</h2>
       <form className={styles.form}>
-        <label htmlFor="title"></label>
+        <label htmlFor="title">Title:</label>
         <input
           type="text"
           placeholder="Title"
@@ -34,6 +33,7 @@ const AddPlaylist: NextPage = () => {
           className={styles.inputField}
           onChange={(e) => setTitle(e.target.value)}
         />
+        <label htmlFor="url">Image url:</label>
         <input
           type="text"
           placeholder="Url"
@@ -42,7 +42,6 @@ const AddPlaylist: NextPage = () => {
           className={styles.inputField}
           onChange={(e) => setImageUrl(e.target.value)}
         />
-        <br />
         <input
           type="submit"
           id="submit"
