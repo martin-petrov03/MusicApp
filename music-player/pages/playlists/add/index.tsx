@@ -2,52 +2,64 @@ import type { NextPage } from "next";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import uniqueString from "unique-string";
+import { withFormik, FormikProps, FormikErrors, Form, Field } from "formik";
 import { MetaTags } from "../../../components/index";
 import { addPlaylist } from "../../../utils/db";
-import PlaylistInterface from "../../../utils/interfaces/Playlist";
 import styles from "./AddPlaylist.module.scss";
+
+interface ErrorInterface {
+  message: string;
+}
 
 const AddPlaylist: NextPage = () => {
   const router = useRouter();
-  const [imageUrl, setImageUrl] = useState<string>("");
-  const [title, setTitle] = useState<string>("");
+  const [titleError, setTitleError] = useState<ErrorInterface>();
+  const [urlError, setUrlErrors] = useState<ErrorInterface>();
+  const [isSubmitted, setIsSubmitted] = useState<boolean>();
 
-  const handleSubmit = async (event: any) => {
+  const handleSubmit = (event: any) => {
     event.preventDefault();
-    const newPlaylist = { id: uniqueString(), title, imageUrl };
-    addPlaylist(newPlaylist);
-    router.back();
+    console.log("dasd");
+    //const newPlaylist = { id: uniqueString(), register.title, register.imageUrl };
+    //addPlaylist(newPlaylist);
+    setIsSubmitted(true);
+    // router.back();
   };
 
   return (
-    <div onSubmit={(e) => handleSubmit(e)} className={styles.container}>
+    <div className={styles.container}>
       <MetaTags title="Add Playlist" description="App playlist page" />
       <h2>Add Playlist</h2>
       <form className={styles.form}>
         <label htmlFor="title">Title:</label>
         <input
-          type="text"
           placeholder="Title"
           id="title"
+          name="title"
           autoComplete="off"
           className={styles.inputField}
-          onChange={(e) => setTitle(e.target.value)}
         />
+        {titleError?.message ? <div>{titleError.message}</div> : null}
+
         <label htmlFor="url">Image url:</label>
         <input
-          type="text"
           placeholder="Url"
-          id="url"
+          id="imageUrl"
+          name="imageUrl"
           autoComplete="off"
           className={styles.inputField}
-          onChange={(e) => setImageUrl(e.target.value)}
         />
-        <input
+        {urlError?.message ? <div>{urlError.message}</div> : null}
+
+        <button
           type="submit"
+          disabled={isSubmitted}
           id="submit"
           className={styles.submitBtn}
-          value="Create"
-        />
+          onClick={handleSubmit}
+        >
+          Create
+        </button>
       </form>
     </div>
   );
