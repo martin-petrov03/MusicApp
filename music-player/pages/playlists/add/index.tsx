@@ -2,7 +2,6 @@ import type { NextPage } from "next";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import uniqueString from "unique-string";
-import { withFormik, FormikProps, FormikErrors, Form, Field } from "formik";
 import { MetaTags } from "../../../components/index";
 import { addPlaylist } from "../../../utils/db";
 import styles from "./AddPlaylist.module.scss";
@@ -13,14 +12,16 @@ interface ErrorInterface {
 
 const AddPlaylist: NextPage = () => {
   const router = useRouter();
+  const [title, setTitle] = useState<string>();
+  const [url, setUrl] = useState<string>();
   const [titleError, setTitleError] = useState<ErrorInterface>();
   const [urlError, setUrlErrors] = useState<ErrorInterface>();
   const [isSubmitted, setIsSubmitted] = useState<boolean>();
 
   const handleSubmit = (event: any) => {
     event.preventDefault();
-    console.log("dasd");
-    //const newPlaylist = { id: uniqueString(), register.title, register.imageUrl };
+    const newPlaylist = { id: uniqueString(), title, url };
+    console.log(newPlaylist);
     //addPlaylist(newPlaylist);
     setIsSubmitted(true);
     // router.back();
@@ -38,6 +39,7 @@ const AddPlaylist: NextPage = () => {
           name="title"
           autoComplete="off"
           className={styles.inputField}
+          onChange={(e) => setTitle(e.target.value)}
         />
         {titleError?.message ? <div>{titleError.message}</div> : null}
 
@@ -48,6 +50,7 @@ const AddPlaylist: NextPage = () => {
           name="imageUrl"
           autoComplete="off"
           className={styles.inputField}
+          onChange={(e) => setUrl(e.target.value)}
         />
         {urlError?.message ? <div>{urlError.message}</div> : null}
 
