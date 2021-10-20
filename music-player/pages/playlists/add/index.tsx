@@ -4,27 +4,33 @@ import { useState } from "react";
 import uniqueString from "unique-string";
 import { MetaTags } from "../../../components/index";
 import { addPlaylist } from "../../../utils/db";
+import PlaylistInterface from "../../../utils/interfaces/Playlist";
+import validate from "./validate";
 import styles from "./AddPlaylist.module.scss";
-
-interface ErrorInterface {
-  message: string;
-}
 
 const AddPlaylist: NextPage = () => {
   const router = useRouter();
   const [title, setTitle] = useState<string>();
-  const [url, setUrl] = useState<string>();
-  const [titleError, setTitleError] = useState<ErrorInterface>();
-  const [urlError, setUrlErrors] = useState<ErrorInterface>();
+  const [imageUrl, setImageUrl] = useState<string>();
+  const [errorMessage, setErrorMessage] = useState<string>();
   const [isSubmitted, setIsSubmitted] = useState<boolean>();
 
   const handleSubmit = (event: any) => {
     event.preventDefault();
-    const newPlaylist = { id: uniqueString(), title, url };
-    console.log(newPlaylist);
-    //addPlaylist(newPlaylist);
+    const newPlaylist: PlaylistInterface = {
+      id: uniqueString(),
+      title: title || "",
+      imageUrl: imageUrl || "",
+    };
+
+    const message = validate(newPlaylist);
+    if (message.length) {
+      setErrorMessage(message);
+      return;
+    }
+    addPlaylist(newPlaylist);
     setIsSubmitted(true);
-    // router.back();
+    router.back();
   };
 
   return (
@@ -32,6 +38,7 @@ const AddPlaylist: NextPage = () => {
       <MetaTags title="Add Playlist" description="App playlist page" />
       <h2>Add Playlist</h2>
       <form className={styles.form}>
+        {errorMessage ? <div>{errorMessage}</div> : null}
         <label htmlFor="title">Title:</label>
         <input
           placeholder="Title"
@@ -41,7 +48,6 @@ const AddPlaylist: NextPage = () => {
           className={styles.inputField}
           onChange={(e) => setTitle(e.target.value)}
         />
-        {titleError?.message ? <div>{titleError.message}</div> : null}
 
         <label htmlFor="url">Image url:</label>
         <input
@@ -50,9 +56,8 @@ const AddPlaylist: NextPage = () => {
           name="imageUrl"
           autoComplete="off"
           className={styles.inputField}
-          onChange={(e) => setUrl(e.target.value)}
+          onChange={(e) => setImageUrl(e.target.value)}
         />
-        {urlError?.message ? <div>{urlError.message}</div> : null}
 
         <button
           type="submit"
