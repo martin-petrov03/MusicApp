@@ -8,6 +8,11 @@
     margin: 2em 0;
     width: 40em;
 
+    .message {
+      color: $text-error;
+      margin: 1em auto;
+    }
+
     input {
       margin: 0.5em auto;
       border-radius: 0.75em;
@@ -15,7 +20,7 @@
     }
 
     .inputField {
-      width: 15em;
+      width: 17em;
       padding: 0.6em 1em;
     }
 
@@ -23,6 +28,16 @@
       width: 6em;
       padding: 0.5em;
       margin-top: 1em;
+    }
+
+    .btn {
+      margin-top: 1em;
+      width: 6.5em;
+      height: 2.5em;
+      border-radius: 0.75em;
+      border: 2px solid $base-color;
+      color: $base-color;
+      background-color: #fff;
     }
   }
 }
