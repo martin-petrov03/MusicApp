@@ -75,7 +75,7 @@ const getPlaylists = async () => {
   }
 };
 
-const getPlaylist = async (id: number) => {
+const getPlaylist = async (id: string) => {
   const playlists = await getPlaylists();
   const playlist = playlists?.find((p) => p.id === id);
   return playlist;

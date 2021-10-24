@@ -8,12 +8,12 @@ interface IProps extends React.ClassAttributes<PlaylistInterface> {
   playlist: PlaylistInterface;
 }
 
-const Artist: NextPage<IProps> = (props: IProps) => {
+const PlaylistDetails: NextPage<IProps> = (props: IProps) => {
   const playlist = props.playlist;
 
   return (
     <div>
-      <MetaTags title="Artist Details" description="Artist details page" />
+      <MetaTags title="Playlist Details" description="Playlist details page" />
       <div className={styles.container}>
         <div key={playlist.id}>
           <h2>Name: {playlist.title}</h2>
@@ -25,20 +25,14 @@ const Artist: NextPage<IProps> = (props: IProps) => {
 };
 
 interface IContext {
-  params: { id: number };
+  params: { id: string };
 }
-export async function getStaticProps(context: IContext) {
-  const id = Number(context.params.id);
+
+export async function getServerSideProps(context: IContext) {
+  const id = context.params.id;
   const playlist = await getPlaylist(id);
+
   return { props: { playlist } };
 }
 
-export async function getStaticPaths() {
-  const playlists = await getPlaylists();
-  const paths = playlists?.map((playlist) => ({
-    params: { id: playlist.id.toString() },
-  }));
-  return { paths, fallback: "blocking" };
-}
-
-export default Artist;
+export default PlaylistDetails;
