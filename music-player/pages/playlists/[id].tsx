@@ -20,7 +20,7 @@ const PlaylistDetails: NextPage<IProps> = (props: IProps) => {
           <img src={playlist.imageUrl} alt={playlist.title} />
           <ol>
             {playlist.songs.map((s, idx) => (
-              <li key={idx}>{s}</li>
+              <li key={idx}>{getSong(s).}</li>
             ))}
           </ol>
         </div>
@@ -36,7 +36,7 @@ interface IContext {
 export async function getServerSideProps(context: IContext) {
   const id = context.params.id;
   const playlist = await getPlaylist(id);
-
+  
   return { props: { playlist } };
 }
 
