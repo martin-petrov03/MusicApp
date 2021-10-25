@@ -11,6 +11,7 @@ const Playlist = ({ playlists }: Props) => {
     <div className={styles.playlists}>
       {playlists.map(function (p, idx) {
         const playlistLink = `/playlists/${p.id}`;
+
         return (
           <div className={styles.playlist} key={idx}>
             <Link href={playlistLink}>

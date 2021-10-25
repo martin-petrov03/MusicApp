@@ -1,5 +1,5 @@
 import type { NextPage } from "next";
-import { getPlaylists, getPlaylist } from "../../utils/db";
+import { getPlaylist } from "../../utils/db";
 import { MetaTags } from "../../components/index";
 import PlaylistInterface from "../../utils/interfaces/Playlist";
 import styles from "./Playlists.module.scss";
@@ -18,6 +18,11 @@ const PlaylistDetails: NextPage<IProps> = (props: IProps) => {
         <div key={playlist.id}>
           <h2>Name: {playlist.title}</h2>
           <img src={playlist.imageUrl} alt={playlist.title} />
+          <ol>
+            {playlist.songs.map((s, idx) => (
+              <li key={idx}>{s}</li>
+            ))}
+          </ol>
         </div>
       </div>
     </div>
