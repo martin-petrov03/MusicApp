@@ -21,6 +21,7 @@ const AddPlaylist: NextPage = () => {
       id: uniqueString(),
       title: title || "",
       imageUrl: imageUrl || "",
+      songIds: [],
     };
 
     const message = validate(newPlaylist);

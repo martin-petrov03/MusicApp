@@ -7,6 +7,7 @@ import {
 } from "firebase/firestore/lite";
 import { getStorage, ref, getDownloadURL } from "firebase/storage";
 import PlaylistInterface from "./interfaces/Playlist";
+import SongInterface from "./interfaces/Song";
 
 const db = getFirestore(app);
 
@@ -77,8 +78,20 @@ const getPlaylists = async () => {
 
 const getPlaylist = async (id: string) => {
   const playlists = await getPlaylists();
-  const playlist = playlists?.find((p) => p.id === id);
+  const playlist = await playlists?.find((p) => p.id === id);
   return playlist;
+};
+
+const getSongsDetailsInPlaylist = async (id: string) => {
+  const playlist = await getPlaylist(id);
+  const result: any = {};
+
+  for (let i = 0; i < playlist?.songIds.length; i++) {
+    const songDetails = await getSong(playlist?.songIds[i]);
+    result[i + 1] = songDetails;
+  }
+
+  return result;
 };
 
 export {
@@ -90,4 +103,5 @@ export {
   addPlaylist,
   getPlaylists,
   getPlaylist,
+  getSongsDetailsInPlaylist,
 };

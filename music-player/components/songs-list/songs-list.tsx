@@ -15,9 +15,9 @@ const SongsList = (songs: Props) => {
         return (
           <div className={styles.song} key={idx}>
             <Link href={songLink}>
-              <img src={s.imageUrl} alt={s.name} />
+              <img src={s.imageUrl} alt={s.title} />
             </Link>
-            <p>{s.name}</p>
+            <p>{s.title}</p>
           </div>
         );
       })}

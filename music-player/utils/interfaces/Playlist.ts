@@ -1,10 +1,10 @@
-import SongsInterface from "./Song";
+import Song from "./Song";
 
 interface Playlist {
   id: string;
   title: string;
   imageUrl: string;
-  songs: Array<SongsInterface>;
+  songIds: Array<number>;
 }
 
 export default Playlist;
