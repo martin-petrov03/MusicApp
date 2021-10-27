@@ -10,7 +10,7 @@ interface Props {
 
 const Home: NextPage<Props> = (props) => {
   const songs = props.songs;
-
+  console.log(songs);
   return (
     <div>
       <MetaTags title="Home Page" description="Music Player Home Page" />
@@ -19,7 +19,7 @@ const Home: NextPage<Props> = (props) => {
           <h1>Trending Songs</h1>
         </div>
       </div>
-      <SongsList songs={props.songs} />
+      <SongsList songs={songs} />
     </div>
   );
 };
@@ -35,6 +35,7 @@ export async function getStaticProps() {
         id: song.id,
         title: song.title,
         imageUrl: song.imageUrl,
+        artistId: song.artistId,
       })),
     },
     revalidate: 5,

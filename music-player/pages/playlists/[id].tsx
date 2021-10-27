@@ -2,19 +2,23 @@ import type { NextPage } from "next";
 import { getPlaylist, getSongsDetailsInPlaylist } from "../../utils/db";
 import { MetaTags } from "../../components/index";
 import PlaylistInterface from "../../utils/interfaces/Playlist";
+import SongInterface from "../../utils/interfaces/Song";
 import styles from "./Playlists.module.scss";
 
 interface IProps extends React.ClassAttributes<PlaylistInterface> {
   playlist: PlaylistInterface;
-  songDetails: object;
+  songDetails: Array<SongInterface>;
 }
 
 const PlaylistDetails: NextPage<IProps> = (props: IProps) => {
   const playlist = props.playlist;
   const songDetails = props.songDetails;
+  let result = { playlist, ...songDetails };
 
-  console.log(playlist);
+  songDetails.map((s) => console.log(s));
+  // console.log(playlist);
   console.log(songDetails);
+  // console.log(result);
 
   return (
     <div>
@@ -24,9 +28,13 @@ const PlaylistDetails: NextPage<IProps> = (props: IProps) => {
           <h2>Name: {playlist.title}</h2>
           <img src={playlist.imageUrl} alt={playlist.title} />
           <ol>
-            {/* {playlist.songIds.map((s, idx) => (
-              <li key={idx}>{s}</li>
-            ))} */}
+            {songDetails.map((s) => (
+              <li className={styles.song} key={s.id}>
+                <p>aaa</p>
+                <p>{s.title}</p>
+                <img src={s.imageUrl} alt={s.title} />
+              </li>
+            ))}
           </ol>
         </div>
       </div>
@@ -42,8 +50,9 @@ export async function getServerSideProps(context: IContext) {
   const id = context.params.id;
   const playlist = await getPlaylist(id);
   const songDetails = await getSongsDetailsInPlaylist(playlist?.id);
+  var songDetailsArray = Object.entries(songDetails).map((e) => e[1]);
 
-  return { props: { playlist, songDetails } };
+  return { props: { playlist, songDetails: songDetailsArray } };
 }
 
 export default PlaylistDetails;
