@@ -10,25 +10,37 @@
     text-align: start;
   }
 
+  img {
+    width: 10em;
+    height: auto;
+  }
+
   svg:hover {
     fill: $text-hover;
   }
 
   ol {
-    color: $text-color;
-    text-align: center;
     list-style-position: inside;
+    list-style-type: decimal;
+    color: #ffffff;
+    margin: 3em auto;
+    text-align: left;
 
     .song {
-      img {
-        width: 4em;
-        height: auto;
-      }
+      width: 70em;
+      padding: 1.5em 2em;
+      background-color: rgb(56, 53, 53);
+      font-size: 1.1em;
 
-      li {
-        font-size: 1.1em;
-        margin-right: 1.5em;
+      img {
+        width: 3em;
+        height: auto;
+        margin: 0 3em;
       }
+    }
+
+    .song:hover {
+      color: $text-hover;
     }
   }
 }

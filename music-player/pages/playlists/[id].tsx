@@ -25,14 +25,13 @@ const PlaylistDetails: NextPage<IProps> = (props: IProps) => {
       <MetaTags title="Playlist Details" description="Playlist details page" />
       <div className={styles.container}>
         <div key={playlist.id}>
-          <h2>Name: {playlist.title}</h2>
+          <h2>{playlist.title}</h2>
           <img src={playlist.imageUrl} alt={playlist.title} />
           <ol>
             {songDetails.map((s) => (
               <li className={styles.song} key={s.id}>
-                <p>aaa</p>
-                <p>{s.title}</p>
                 <img src={s.imageUrl} alt={s.title} />
+                {s.title}
               </li>
             ))}
           </ol>
