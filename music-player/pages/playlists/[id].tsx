@@ -27,14 +27,35 @@ const PlaylistDetails: NextPage<IProps> = (props: IProps) => {
         <div key={playlist.id}>
           <h2>{playlist.title}</h2>
           <img src={playlist.imageUrl} alt={playlist.title} />
-          <ol>
-            {songDetails.map((s) => (
-              <li className={styles.song} key={s.id}>
-                <img src={s.imageUrl} alt={s.title} />
-                {s.title}
+          <div className={styles.wrapper}>
+            <div className={styles.row}>
+              <li key="-2">
+                <b>#</b>
               </li>
-            ))}
-          </ol>
+              <li key="-1">
+                <b>Title</b>
+              </li>
+              <li key="0">
+                <b>Duration</b>
+              </li>
+            </div>
+            <ol>
+              {songDetails.map((s, idx) => (
+                <li className={styles.row} key={s.id}>
+                  <div>
+                    <p>{idx + 1}</p>
+                  </div>
+                  <div className={styles.group}>
+                    <img src={s.imageUrl} alt={s.title} />
+                    <p>{s.title}</p>
+                  </div>
+                  <div>
+                    <p>{s.duration}</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </div>
         </div>
       </div>
     </div>

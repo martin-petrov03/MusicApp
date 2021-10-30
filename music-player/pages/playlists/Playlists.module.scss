@@ -19,28 +19,64 @@
     fill: $text-hover;
   }
 
-  ol {
-    list-style-position: inside;
-    list-style-type: decimal;
+  .wrapper {
+    background-color: rgb(56, 53, 53);
     color: #ffffff;
+    width: 70%;
     margin: 3em auto;
-    text-align: left;
+    padding: 1em 1em 0 1em;
 
-    .song {
-      width: 70em;
-      padding: 1.5em 2em;
-      background-color: rgb(56, 53, 53);
+    .row {
+      list-style-type: none;
+      display: grid;
+      grid-template-columns: 5% 1fr 1fr 5%;
+      width: 105%;
       font-size: 1.1em;
 
-      img {
-        width: 3em;
-        height: auto;
-        margin: 0 3em;
+      li:nth-child(2) {
+        text-align: start;
+        margin-left: 2em;
+      }
+
+      li:nth-child(3) {
+        margin-left: auto;
+        margin-right: 1em;
       }
     }
 
-    .song:hover {
-      color: $text-hover;
+    ol {
+      list-style-position: inside;
+      list-style-type: decimal;
+      padding: 0;
+
+      .row {
+        text-align: start;
+        padding: 0.75em 0;
+        margin-left: 1em;
+
+        .group {
+          display: flex;
+
+          p {
+            margin-left: 2em;
+          }
+        }
+
+        div:nth-child(3) {
+          text-align: center;
+          margin: 0 3.25em 0 auto;
+        }
+
+        img {
+          width: 3em;
+          height: auto;
+          margin-top: 0.5em;
+        }
+      }
+
+      .row:hover {
+        color: $text-hover;
+      }
     }
   }
 }
