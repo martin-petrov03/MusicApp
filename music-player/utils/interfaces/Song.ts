@@ -3,7 +3,7 @@ interface Song {
   title: string;
   imageUrl: string;
   artistId: number;
-  duration: number;
+  duration: string;
 }
 
 export default Song;

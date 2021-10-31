@@ -13,12 +13,6 @@ interface IProps extends React.ClassAttributes<PlaylistInterface> {
 const PlaylistDetails: NextPage<IProps> = (props: IProps) => {
   const playlist = props.playlist;
   const songDetails = props.songDetails;
-  let result = { playlist, ...songDetails };
-
-  songDetails.map((s) => console.log(s));
-  // console.log(playlist);
-  console.log(songDetails);
-  // console.log(result);
 
   return (
     <div>
