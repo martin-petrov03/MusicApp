@@ -21,6 +21,15 @@ const PlaylistDetails: NextPage<IProps> = (props: IProps) => {
         <div key={playlist.id}>
           <h2>{playlist.title}</h2>
           <img src={playlist.imageUrl} alt={playlist.title} />
+
+          <div className={styles.buttonSection}>
+            <button>
+              <img src={"/icons/play.svg"} alt="play-icon" />
+            </button>
+            <button>
+              <img src={"/icons/shuffle.svg"} alt="shuffle-icon" />
+            </button>
+          </div>
           <div className={styles.wrapper}>
             <div className={styles.row}>
               <li key="-2">

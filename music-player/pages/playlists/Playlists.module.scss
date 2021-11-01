@@ -19,6 +19,25 @@
     fill: $text-hover;
   }
 
+  .buttonSection {
+    display: flex;
+    justify-content: space-between;
+    width: 15em;
+    height: 5em;
+    margin: 0 auto;
+
+    button {
+      background: none;
+      border: 0;
+
+      img {
+        width: 5em;
+        height: 5em;
+        background-color: none;
+      }
+    }
+  }
+
   .wrapper {
     background-color: rgb(56, 53, 53);
     color: #ffffff;
