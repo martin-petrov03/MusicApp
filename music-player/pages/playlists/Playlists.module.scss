@@ -21,19 +21,20 @@
 
   .buttonSection {
     display: flex;
-    justify-content: space-between;
-    width: 15em;
-    height: 5em;
-    margin: 0 auto;
+    width: 70%;
+    margin: 2em auto 0 auto;
 
     button {
       background: none;
       border: 0;
 
-      img {
-        width: 5em;
-        height: 5em;
+      svg {
+        width: 2.5em;
+        height: 2.5em;
         background-color: none;
+      }
+      svg:hover {
+        fill: $base-color;
       }
     }
   }
@@ -42,7 +43,7 @@
     background-color: rgb(56, 53, 53);
     color: #ffffff;
     width: 70%;
-    margin: 3em auto;
+    margin: 0 auto;
     padding: 1em 1em 0 1em;
 
     .row {
