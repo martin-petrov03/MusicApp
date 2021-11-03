@@ -1,3 +1,4 @@
+import router from "next/router";
 import { useState } from "react";
 import styles from "./Search.module.scss";
 
@@ -7,6 +8,7 @@ const Search = () => {
   const search = () => {
     console.log(searchedText);
     setSearchedText("");
+    router.push(`/search/${searchedText}`);
   };
 
   return (
