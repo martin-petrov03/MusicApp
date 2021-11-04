@@ -2,6 +2,7 @@ import type { NextPage } from "next";
 import SongInterface from "../../utils/interfaces/Song";
 import ArtistInterface from "../../utils/interfaces/Artists";
 import PlaylistInterface from "../../utils/interfaces/Playlist";
+import { FoundItemsList } from "../../components/index";
 // import styles from "./Search.module.scss";
 
 interface IProps extends React.ClassAttributes<PlaylistInterface> {
@@ -17,14 +18,10 @@ const SearchedItems: NextPage<IProps> = (props: IProps) => {
 
   return (
     <div>
-      Items Found:
-      <ul>
-        <li>Song 1</li>
-        <li>Song 2</li>
-        <li>Song 3</li>
-        <li>Artist 1</li>
-        <li>Artist 2</li>
-      </ul>
+      <div>
+        <h1>Trending Songs</h1>
+      </div>
+      <FoundItemsList />
     </div>
   );
 };
