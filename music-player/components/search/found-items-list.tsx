@@ -1,12 +1,12 @@
 // import Link from "next/link";
-import styles from "./Search.module.scss";
+import SearchItemInterface from "../../utils/interfaces/SearchItem";
+import styles from "./FoundItems.module.scss";
 
-interface Props extends React.ClassAttributes<any> {
-  //artists: ArtistsInterface[];
-  items: any;
+interface IProps {
+  items: SearchItemInterface;
 }
 
-const FoundItemsList = ({ items }: Props) => {
+const FoundItemsList = ({ items }: IProps) => {
   return (
     <div className={styles.items}>
       <li>Song 1</li>

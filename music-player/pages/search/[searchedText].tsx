@@ -1,27 +1,18 @@
 import type { NextPage } from "next";
-import SongInterface from "../../utils/interfaces/Song";
-import ArtistInterface from "../../utils/interfaces/Artists";
-import PlaylistInterface from "../../utils/interfaces/Playlist";
+import SearhItemInterface from "../../utils/interfaces/SearchItem";
+import { getItemsBySearch } from "../../utils/db";
 import { FoundItemsList } from "../../components/index";
-// import styles from "./Search.module.scss";
+import styles from "./Search.module.scss";
 
-interface IProps extends React.ClassAttributes<PlaylistInterface> {
-  songs: Array<SongInterface>;
-  artists: Array<ArtistInterface>;
-  playlists: Array<PlaylistInterface>;
-}
-
-const SearchedItems: NextPage<IProps> = (props: IProps) => {
-  const search = () => {
-    //TODO: extract data
-  };
-
+const SearchedItems: NextPage<SearhItemInterface> = (
+  props: SearhItemInterface
+) => {
   return (
-    <div>
+    <div className={styles.container}>
       <div>
-        <h1>Trending Songs</h1>
+        <h1>Found Items:</h1>
       </div>
-      <FoundItemsList />
+      <FoundItemsList items={props} />
     </div>
   );
 };
@@ -31,9 +22,15 @@ interface IContext {
 }
 export async function getServerSideProps(context: IContext) {
   const searchedText = context.params.searchedText;
-  //TODO
+  const resultObject = await getItemsBySearch(searchedText);
 
-  return { props: { songs: [], artists: [], playlists: [] } };
+  return {
+    props: {
+      songs: resultObject.songs,
+      artists: resultObject.artists,
+      playlists: resultObject.playlists,
+    },
+  };
 }
 
 export default SearchedItems;

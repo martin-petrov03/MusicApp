@@ -1,6 +1,5 @@
 import Link from "next/link";
-import { useState } from "react";
-import ArtistsInterface from "../../utils/interfaces/Artists";
+import ArtistsInterface from "../../utils/interfaces/Artist";
 import styles from "./ArtistsList.module.scss";
 
 interface Props extends React.ClassAttributes<any> {

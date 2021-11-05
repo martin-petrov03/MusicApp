@@ -2,7 +2,7 @@ import type { NextPage } from "next";
 import { ArtistsList, MetaTags } from "../../components/index";
 import styles from "./Artists.module.scss";
 import { getArtists } from "../../utils/db";
-import ArtistsInterface from "../../utils/interfaces/Artists";
+import ArtistsInterface from "../../utils/interfaces/Artist";
 
 interface Props {
   artists: ArtistsInterface[];

@@ -94,6 +94,14 @@ const getSongsDetailsInPlaylist = async (id: string) => {
   return result;
 };
 
+const getItemsBySearch = (input: string) => {
+  return {
+    songs: [],
+    artists: [],
+    playlists: [],
+  };
+};
+
 export {
   getSongs,
   getSong,
@@ -104,4 +112,5 @@ export {
   getPlaylists,
   getPlaylist,
   getSongsDetailsInPlaylist,
+  getItemsBySearch,
 };
