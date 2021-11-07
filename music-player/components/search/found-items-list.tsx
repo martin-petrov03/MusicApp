@@ -1,4 +1,4 @@
-// import Link from "next/link";
+import Link from "next/link";
 import SearchItemInterface from "../../utils/interfaces/SearchItem";
 import styles from "./FoundItems.module.scss";
 
@@ -9,23 +9,39 @@ interface IProps {
 const FoundItemsList = ({ items }: IProps) => {
   return (
     <div className={styles.items}>
-      <li>Song 1</li>
-      <li>Song 2</li>
-      <li>Song 3</li>
-      <li>Artist 1</li>
-      <li>Artist 2</li>
-      {/* {items.map(function (s, idx) {
-        //const artistLink = `/artists/${s.id}`;
-
+      <h4>Songs</h4>
+      {items.songs.map(function (s) {
+        const songLink = `/songs/${s.id}`;
         return (
-          <div className={styles.artist} key={idx}>
-            {/* <Link href={artistLink}> */}
-      {/* <img src={s.url} alt={s.name} /> */}
-      {/* </Link> */}
-      {/* <p>{s.name}</p> */}
-      {/* </div> */}
-      {/* ); */}
-      {/* })} */}
+          <Link href={songLink} key={s.id}>
+            <img src={s.imageUrl} alt={s.title} />
+            <p>Title: {s.title}</p>
+            <p>Author: {s.artistId}</p>
+          </Link>
+        );
+      })}
+
+      <h4>Artists</h4>
+      {items.artists.map(function (a) {
+        const artistLink = `/artists/${a.id}`;
+        return (
+          <Link href={artistLink} key={a.id}>
+            <img src={a.url} alt={a.name} />
+            <p>{a.name}</p>
+          </Link>
+        );
+      })}
+
+      <h4>Playlists</h4>
+      {items.playlists.map(function (p) {
+        const playlistLink = `/playlists/${p.id}`;
+        return (
+          <Link href={playlistLink} key={p.id}>
+            <img src={p.imageUrl} alt={p.title} />
+            <p>{p.title}</p>
+          </Link>
+        );
+      })}
     </div>
   );
 };
