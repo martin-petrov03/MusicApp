@@ -6,9 +6,11 @@ const Search = () => {
   const [searchedText, setSearchedText] = useState<string>("");
 
   const search = () => {
-    console.log(searchedText);
     setSearchedText("");
-    router.push(`/search/${searchedText}`);
+    router.push({
+      pathname: "/search",
+      query: { input: searchedText },
+    });
   };
 
   return (

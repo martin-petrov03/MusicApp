@@ -7,7 +7,6 @@ import {
 } from "firebase/firestore/lite";
 import { getStorage, ref, getDownloadURL } from "firebase/storage";
 import PlaylistInterface from "./interfaces/Playlist";
-import SongInterface from "./interfaces/Song";
 
 const db = getFirestore(app);
 
@@ -94,11 +93,22 @@ const getSongsDetailsInPlaylist = async (id: string) => {
   return result;
 };
 
-const getItemsBySearch = (input: string) => {
+const getItemsBySearch = async (input: string) => {
+  const songs = (await getSongs())?.filter((s) =>
+    s.title.toLowerCase().includes(input.toLowerCase)
+  );
+  //TODO add better search artist sensitivity
+  const artists = (await getArtists())?.filter((a) =>
+    a.name.toLowerCase().includes(input.toLowerCase)
+  );
+  const playlists = (await getArtists())?.filter((p) =>
+    p.title.toLowerCase().includes(input.toLowerCase)
+  );
+
   return {
-    songs: [],
-    artists: [],
-    playlists: [],
+    songs,
+    artists,
+    playlists,
   };
 };
 
