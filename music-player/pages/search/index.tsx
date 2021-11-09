@@ -8,7 +8,6 @@ const SearchedItems: NextPage<SearhItemInterface> = (
   props: SearhItemInterface
 ) => {
   console.log(props);
-
   return (
     <div className={styles.container}>
       <div>
@@ -20,10 +19,10 @@ const SearchedItems: NextPage<SearhItemInterface> = (
 };
 
 interface IContext {
-  params: { searchedText: string };
+  query: { input: string };
 }
 export async function getServerSideProps(context: IContext) {
-  const searchedText = context.params.searchedText;
+  const searchedText = context?.query.input;
   const resultObject = await getItemsBySearch(searchedText);
 
   return {

@@ -11,35 +11,35 @@ const FoundItemsList = ({ items }: IProps) => {
     <div className={styles.items}>
       <h4>Songs</h4>
       {items.songs.map(function (s) {
-        const songLink = `/songs/${s.id}`;
+        const songLink = `/songs`;
         return (
-          <Link href={songLink} key={s.id}>
+          <div>
             <img src={s.imageUrl} alt={s.title} />
             <p>Title: {s.title}</p>
             <p>Author: {s.artistId}</p>
-          </Link>
+          </div>
         );
       })}
 
       <h4>Artists</h4>
       {items.artists.map(function (a) {
-        const artistLink = `/artists/${a.id}`;
+        const artistLink = `/artists`;
         return (
-          <Link href={artistLink} key={a.id}>
+          <div>
             <img src={a.url} alt={a.name} />
             <p>{a.name}</p>
-          </Link>
+          </div>
         );
       })}
 
       <h4>Playlists</h4>
       {items.playlists.map(function (p) {
-        const playlistLink = `/playlists/${p.id}`;
+        const playlistLink = `/playlists`;
         return (
-          <Link href={playlistLink} key={p.id}>
+          <div>
             <img src={p.imageUrl} alt={p.title} />
             <p>{p.title}</p>
-          </Link>
+          </div>
         );
       })}
     </div>

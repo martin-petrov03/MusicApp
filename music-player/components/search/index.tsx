@@ -1,12 +1,12 @@
-import router from "next/router";
+import { useRouter } from "next/router";
 import { useState } from "react";
 import styles from "./Search.module.scss";
 
 const Search = () => {
+  const router = useRouter();
   const [searchedText, setSearchedText] = useState<string>("");
 
   const search = () => {
-    setSearchedText("");
     router.push({
       pathname: "/search",
       query: { input: searchedText },
