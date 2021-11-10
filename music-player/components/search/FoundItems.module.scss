@@ -1,5 +1,23 @@
 .items {
   text-align: center;
   margin: 0 auto;
-  width: 50%;
+  width: 100%;
+
+  div {
+    display: flex;
+    justify-content: space-between;
+    margin: 1em auto;
+    width: 80%;
+    background-color: rgb(243, 242, 242);
+
+    img {
+      width: 15em;
+      height: auto;
+    }
+
+    p {
+      margin: auto;
+      vertical-align: middle;
+    }
+  }
 }

@@ -20,6 +20,7 @@ const FoundItemsList = ({ items }: IProps) => {
           </div>
         );
       })}
+      {items.songs.length === 0 ? <p>Nothing was found</p> : null}
 
       <h4>Artists</h4>
       {items.artists.map(function (a) {
@@ -31,6 +32,7 @@ const FoundItemsList = ({ items }: IProps) => {
           </div>
         );
       })}
+      {items.artists.length === 0 ? <p>Nothing was found</p> : null}
 
       <h4>Playlists</h4>
       {items.playlists.map(function (p) {
@@ -42,6 +44,7 @@ const FoundItemsList = ({ items }: IProps) => {
           </div>
         );
       })}
+      {items.playlists.length === 0 ? <p>Nothing was found</p> : null}
     </div>
   );
 };
