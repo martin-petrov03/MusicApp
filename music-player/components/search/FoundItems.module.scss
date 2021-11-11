@@ -1,3 +1,5 @@
+@import "./variables.scss";
+
 .items {
   text-align: center;
   margin: 0 auto;
@@ -13,11 +15,17 @@
     img {
       width: 15em;
       height: auto;
+      margin-right: 5em;
     }
 
     p {
+      width: 30%;
       margin: auto;
       vertical-align: middle;
     }
+  }
+
+  div:hover {
+    color: $text-hover;
   }
 }

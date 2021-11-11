@@ -29,6 +29,7 @@ const FoundItemsList = ({ items }: IProps) => {
           <div>
             <img src={a.url} alt={a.name} />
             <p>{a.name}</p>
+            <p>Artists Names: {a.artistsNames.length}</p>
           </div>
         );
       })}
