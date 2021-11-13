@@ -10,7 +10,7 @@ interface Props {
 
 const Home: NextPage<Props> = (props) => {
   const songs = props.songs;
-  console.log(songs);
+
   return (
     <div>
       <MetaTags title="Home Page" description="Music Player Home Page" />

@@ -1,4 +1,3 @@
-import Link from "next/link";
 import SearchItemInterface from "../../utils/interfaces/SearchItem";
 import styles from "./FoundItems.module.scss";
 
@@ -13,7 +12,7 @@ const FoundItemsList = ({ items }: IProps) => {
       {items.songs.map(function (s) {
         const songLink = `/songs`;
         return (
-          <div>
+          <div key={s.id}>
             <img src={s.imageUrl} alt={s.title} />
             <p>Title: {s.title}</p>
             <p>Author: {s.artistId}</p>
@@ -26,7 +25,7 @@ const FoundItemsList = ({ items }: IProps) => {
       {items.artists.map(function (a) {
         const artistLink = `/artists`;
         return (
-          <div>
+          <div key={a.id}>
             <img src={a.url} alt={a.name} />
             <p>{a.name}</p>
             <p>Artists Names: {a.artistsNames.length}</p>
@@ -39,7 +38,7 @@ const FoundItemsList = ({ items }: IProps) => {
       {items.playlists.map(function (p) {
         const playlistLink = `/playlists`;
         return (
-          <div>
+          <div key={p.id}>
             <img src={p.imageUrl} alt={p.title} />
             <p>{p.title}</p>
           </div>

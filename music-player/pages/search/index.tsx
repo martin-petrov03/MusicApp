@@ -7,7 +7,6 @@ import styles from "./Search.module.scss";
 const SearchedItems: NextPage<SearhItemInterface> = (
   props: SearhItemInterface
 ) => {
-  console.log(props);
   return (
     <div className={styles.container}>
       <div>
