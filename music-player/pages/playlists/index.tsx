@@ -27,8 +27,9 @@ const Playlists: NextPage<Props> = (props) => {
         <div>
           <h1>Playlists</h1>
         </div>
+
+        <Playlist playlists={playlists} />
       </div>
-      <Playlist playlists={playlists} />
     </div>
   );
 };

@@ -1,21 +1,19 @@
 .container {
+  display: block;
+  margin: 0 auto;
+  width: 90%;
   text-align: center;
 
-  div {
-    display: flex;
-
-    h1 {
-      margin-left: 3em;
-    }
+  h1 {
+    text-align: start;
   }
 }
 
 @media only screen and (max-width: 740px) {
   .container {
-    div {
-      h1 {
-        margin: 1em auto;
-      }
+    h1 {
+      text-align: center;
+      margin: 1em 0;
     }
   }
 }

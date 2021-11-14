@@ -1,12 +1,12 @@
 .playlists {
+  width: 100%;
   display: flex;
   flex-flow: row wrap;
   justify-items: center;
   flex-direction: row;
   text-align: center;
   margin: 0 auto;
-  margin-right: 0;
-  width: 90%;
+  padding: 0 2em;
 
   .playlist {
     cursor: pointer;

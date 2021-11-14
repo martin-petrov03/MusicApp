@@ -18,8 +18,8 @@ const Home: NextPage<Props> = (props) => {
         <div>
           <h1>Trending Songs</h1>
         </div>
+        <SongsList songs={songs} />
       </div>
-      <SongsList songs={songs} />
     </div>
   );
 };

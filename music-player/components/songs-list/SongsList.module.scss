@@ -1,11 +1,11 @@
 .songs {
+  width: 100%;
   display: flex;
   flex-flow: row wrap;
   justify-items: center;
   flex-direction: row;
   text-align: center;
   margin: 0 auto;
-  width: 90%;
 
   .song {
     cursor: pointer;
@@ -22,5 +22,9 @@
   .songs {
     display: block;
     margin: 0 auto;
+
+    .song {
+      margin: 0;
+    }
   }
 }

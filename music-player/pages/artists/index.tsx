@@ -18,8 +18,8 @@ const Artists: NextPage<Props> = (props) => {
         <div>
           <h1>Artists</h1>
         </div>
+        <ArtistsList artists={artists} />
       </div>
-      <ArtistsList artists={artists} />
     </div>
   );
 };
