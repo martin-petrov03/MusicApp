@@ -14,8 +14,10 @@ const FoundItemsList = ({ items }: IProps) => {
         return (
           <div key={s.id}>
             <img src={s.imageUrl} alt={s.title} />
-            <p>Title: {s.title}</p>
-            <p>Author: {s.artistId}</p>
+            <div>
+              <p>Title: {s.title}</p>
+              <p>Author: {s.artistId}</p>
+            </div>
           </div>
         );
       })}
@@ -27,8 +29,10 @@ const FoundItemsList = ({ items }: IProps) => {
         return (
           <div key={a.id}>
             <img src={a.url} alt={a.name} />
-            <p>{a.name}</p>
-            <p>Artists Names: {a.artistsNames.length}</p>
+            <div>
+              <p>{a.name}</p>
+              <p>Artists Names: {a.artistsNames.length}</p>
+            </div>
           </div>
         );
       })}
@@ -40,7 +44,9 @@ const FoundItemsList = ({ items }: IProps) => {
         return (
           <div key={p.id}>
             <img src={p.imageUrl} alt={p.title} />
-            <p>{p.title}</p>
+            <div>
+              <p>{p.title}</p>
+            </div>
           </div>
         );
       })}

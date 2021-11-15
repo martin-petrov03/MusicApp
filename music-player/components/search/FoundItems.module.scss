@@ -11,15 +11,18 @@
     margin: 1em auto;
     width: 80%;
     background-color: rgb(243, 242, 242);
+    text-align: center;
 
     img {
-      width: 15em;
-      height: auto;
-      margin-right: 5em;
+      width: 8em;
+      height: 7em;
     }
-
+    div {
+      width: 70%;
+      margin-right: 0;
+      margin-left: auto;
+    }
     p {
-      width: 30%;
       margin: auto;
       vertical-align: middle;
     }
