@@ -41,11 +41,13 @@ const FoundItemsList = ({ items }: IProps) => {
       <h4>Playlists</h4>
       {items.playlists.map(function (p) {
         const playlistLink = `/playlists`;
+
         return (
           <div key={p.id}>
             <img src={p.imageUrl} alt={p.title} />
             <div>
               <p>{p.title}</p>
+              <p>Songs count: {p.songIds?.length}</p>
             </div>
           </div>
         );
