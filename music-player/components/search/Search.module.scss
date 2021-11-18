@@ -1,3 +1,5 @@
+@import "./variables.scss";
+
 .searchSection {
   display: flex;
   margin: 3em 0;
@@ -11,15 +13,18 @@
   }
 
   .icon {
-    width: 2.5em;
-    height: 2.5em;
-    padding-top: 0.4em;
     line-height: 2em;
-    margin-left: auto;
+    margin-right: 0.8em;
+    margin-top: 0.23em;
+
+    svg {
+      width: 1.8em;
+      height: 1.8em;
+    }
   }
 
   svg:hover {
-    fill: red;
+    fill: $base-color;
   }
 
   .search {
