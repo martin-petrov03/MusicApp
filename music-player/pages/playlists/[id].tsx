@@ -1,4 +1,5 @@
 import type { NextPage } from "next";
+import Link from "next/link";
 import { getPlaylist, getSongsDetailsInPlaylist } from "../../utils/db";
 import { MetaTags } from "../../components/index";
 import PlaylistInterface from "../../utils/interfaces/Playlist";
@@ -63,18 +64,20 @@ const PlaylistDetails: NextPage<IProps> = (props: IProps) => {
             </div>
             <ol>
               {songDetails.map((s, idx) => (
-                <li className={styles.row} key={s.id}>
-                  <div>
-                    <p>{idx + 1}</p>
+                <Link href={`/songs/${s.id}`} key={s.id}>
+                  <div className={styles.row}>
+                    <div>
+                      <p>{idx + 1}</p>
+                    </div>
+                    <div className={styles.group}>
+                      <img src={s.imageUrl} alt={s.title} />
+                      <p>{s.title}</p>
+                    </div>
+                    <div>
+                      <p>{s.duration}</p>
+                    </div>
                   </div>
-                  <div className={styles.group}>
-                    <img src={s.imageUrl} alt={s.title} />
-                    <p>{s.title}</p>
-                  </div>
-                  <div>
-                    <p>{s.duration}</p>
-                  </div>
-                </li>
+                </Link>
               ))}
             </ol>
           </div>
