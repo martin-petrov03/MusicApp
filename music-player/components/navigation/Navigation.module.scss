@@ -33,3 +33,16 @@
     color: $text-hover;
   }
 }
+
+@media only screen and (max-width: 740px) {
+  .links {
+    width: 100%;
+    margin: 2em auto;
+
+    .link {
+      width: 40%;
+      text-align: center;
+      margin: 0 auto;
+    }
+  }
+}
