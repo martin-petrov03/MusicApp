@@ -44,8 +44,10 @@
 @media only screen and (max-width: 740px) {
   .searchSection {
     margin: 0 auto;
-    text-align: center;
-    width: 55%;
+    padding: 0 auto;
+    width: 40%;
+    max-width: 14em;
+    min-width: 7em;
 
     .search {
       margin: 0 auto;
