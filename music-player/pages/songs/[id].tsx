@@ -16,8 +16,7 @@ const Song: NextPage<Props> = (props) => {
       <MetaTags title="Song Details" description="Song details page" />
       <div className={styles.content}>
         <div className={styles.card}>
-          <h2>{song.title} &rarr;</h2>
-          <p>Content</p>
+          <h2>{song.title}</h2>
           <img src={song.imageUrl} alt={song.title} />
           <audio controls src={song.songUrl} autoPlay>
             Your browser does not support the
