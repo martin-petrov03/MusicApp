@@ -37,7 +37,7 @@ const AddPlaylist: NextPage = () => {
   return (
     <div className={styles.container}>
       <MetaTags title="Add Playlist" description="App playlist page" />
-      <h2>Add Playlist</h2>
+      <h1>Add Playlist</h1>
       <form className={styles.form}>
         {errorMessage ? (
           <div className={styles.message}>{errorMessage}</div>
@@ -62,15 +62,6 @@ const AddPlaylist: NextPage = () => {
           onChange={(e) => setImageUrl(e.target.value)}
         />
 
-        {/* <button
-          type="submit"
-          disabled={isSubmitted}
-          id="submit"
-          className={styles.submitBtn}
-          onClick={handleSubmit}
-        >
-          Create
-        </button> */}
         <button
           type="submit"
           disabled={isSubmitted}
@@ -78,7 +69,7 @@ const AddPlaylist: NextPage = () => {
           className={styles.btn}
           onClick={handleSubmit}
         >
-          Create
+          <label>Create</label>
         </button>
       </form>
     </div>

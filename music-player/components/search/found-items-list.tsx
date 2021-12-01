@@ -31,7 +31,7 @@ const FoundItemsList = ({ items }: IProps) => {
             <img src={a.url} alt={a.name} />
             <div>
               <p>{a.name}</p>
-              <p>Artists Names: {a.artistsNames.length}</p>
+              <p>Artists Names: {a.name.length}</p>
             </div>
           </div>
         );

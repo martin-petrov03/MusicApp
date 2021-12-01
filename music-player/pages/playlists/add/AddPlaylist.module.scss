@@ -13,6 +13,10 @@
       margin: 1em auto;
     }
 
+    label {
+      font-size: 1.2em;
+    }
+
     input {
       margin: 0.5em auto;
       border-radius: 0.75em;
@@ -24,20 +28,19 @@
       padding: 0.6em 1em;
     }
 
-    .submitBtn {
-      width: 6em;
-      padding: 0.5em;
-      margin-top: 1em;
-    }
-
     .btn {
       margin-top: 1em;
-      width: 6.5em;
+      width: 7em;
       height: 2.5em;
       border-radius: 0.75em;
-      border: 2px solid $base-color;
+      border: 3px solid $base-color;
       color: $base-color;
-      background-color: #fff;
+      background-color: #ffff;
+    }
+
+    .btn:hover {
+      background-color: $base-color;
+      color: #ffff;
     }
   }
 }
