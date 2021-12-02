@@ -15,7 +15,7 @@ const Home: NextPage<Props> = (props) => {
     <div>
       <MetaTags title="Home Page" description="Music Player Home Page" />
       <div className={styles.container}>
-        <div>
+        <div className={styles.heading}>
           <h1>Trending Songs</h1>
         </div>
         <SongsList songs={songs} />

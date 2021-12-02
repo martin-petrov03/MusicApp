@@ -24,7 +24,7 @@ const Playlists: NextPage<Props> = (props) => {
             </svg>
           </Link>
         </div>
-        <div>
+        <div className={styles.heading}>
           <h1>Playlists</h1>
         </div>
         <Playlist playlists={playlists} />

@@ -15,7 +15,7 @@ const Artists: NextPage<Props> = (props) => {
     <div>
       <MetaTags title="Artists" description="Artists page" />
       <div className={styles.container}>
-        <div>
+        <div className={styles.heading}>
           <h1>Artists</h1>
         </div>
         <ArtistsList artists={artists} />
