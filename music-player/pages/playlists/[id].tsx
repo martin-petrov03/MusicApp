@@ -4,7 +4,7 @@ import { getPlaylist, getSongsDetailsInPlaylist } from "../../utils/db";
 import { MetaTags } from "../../components/index";
 import PlaylistInterface from "../../utils/interfaces/Playlist";
 import SongInterface from "../../utils/interfaces/Song";
-import styles from "./Playlists.module.scss";
+import styles from "./PlaylistDetails.module.scss";
 
 interface IProps extends React.ClassAttributes<PlaylistInterface> {
   playlist: PlaylistInterface;
@@ -95,7 +95,7 @@ export async function getServerSideProps(context: IContext) {
   const id = context.params.id;
   const playlist = await getPlaylist(id);
   const songDetails = await getSongsDetailsInPlaylist(playlist?.id);
-  var songDetailsArray = Object.entries(songDetails).map((e) => e[1]);
+  const songDetailsArray = Object.entries(songDetails).map((e) => e[1]);
 
   return { props: { playlist, songDetails: songDetailsArray } };
 }

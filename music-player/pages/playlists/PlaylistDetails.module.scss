@@ -1,0 +1,94 @@
+@import "./variables.scss";
+
+.container {
+  width: 90%;
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+
+  img {
+    width: 10em;
+    height: auto;
+  }
+
+  .buttonSection {
+    display: flex;
+    width: 70%;
+    margin: 0 auto;
+
+    button {
+      background: none;
+      border: 0;
+
+      svg {
+        width: 2.5em;
+        height: 2.5em;
+        background-color: none;
+      }
+      svg:hover {
+        fill: $base-color;
+      }
+    }
+  }
+
+  .wrapper {
+    background-color: rgb(56, 53, 53);
+    color: #ffffff;
+    width: 70%;
+    margin: 0 auto;
+    padding: 0 1em;
+
+    .row {
+      list-style-type: none;
+      display: grid;
+      grid-template-columns: 5% 1fr 1fr 5%;
+      width: 105%;
+      font-size: 1.1em;
+
+      li:nth-child(2) {
+        text-align: start;
+        margin-left: 2em;
+      }
+
+      li:nth-child(3) {
+        margin-left: auto;
+        margin-right: 1em;
+      }
+    }
+
+    ol {
+      list-style-position: inside;
+      list-style-type: decimal;
+      padding: 0;
+
+      .row {
+        text-align: start;
+        padding: 0.75em 0;
+        margin-left: 1em;
+
+        .group {
+          display: flex;
+
+          p {
+            margin-left: 2em;
+          }
+        }
+
+        div:nth-child(3) {
+          text-align: center;
+          margin: 0 3.25em 0 auto;
+        }
+
+        img {
+          width: 3em;
+          height: auto;
+          margin-top: 0.5em;
+        }
+      }
+
+      .row:hover {
+        color: $text-hover;
+      }
+    }
+  }
+}
