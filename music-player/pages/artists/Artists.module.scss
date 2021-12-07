@@ -1,11 +1,11 @@
 .container {
   display: block;
+  width: 100%;
   margin: 0 auto;
-  width: 90%;
   text-align: center;
 
   .heading {
-    margin: 0 0 2em 0;
+    margin-bottom: 2em;
   }
 }
 

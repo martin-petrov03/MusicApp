@@ -2,7 +2,7 @@ import type { NextPage } from "next";
 import { getArtists, getArtist } from "../../utils/db";
 import { MetaTags } from "../../components/index";
 import ArtistDetailsInterface from "../../utils/interfaces/ArtistDetails";
-import styles from "./Artist.module.scss";
+import styles from "./ArtistDetails.module.scss";
 
 interface IProps extends React.ClassAttributes<ArtistDetailsInterface> {
   artist: ArtistDetailsInterface;
