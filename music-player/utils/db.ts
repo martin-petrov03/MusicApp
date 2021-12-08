@@ -7,7 +7,6 @@ import {
 } from "firebase/firestore/lite";
 import { getStorage, ref, getDownloadURL } from "firebase/storage";
 import PlaylistInterface from "./interfaces/Playlist";
-import { SongsList } from "../components";
 
 const db = getFirestore(app);
 
@@ -15,7 +14,8 @@ const getSongs = async () => {
   const songsCol = collection(db, "songs");
   const songSnapshot = await getDocs(songsCol);
   const songList = songSnapshot.docs.map((doc) => doc.data());
-  return songList;
+
+  return songList.sort((a, b) => a.id - b.id);
 };
 
 const getSong = async (id: number) => {
