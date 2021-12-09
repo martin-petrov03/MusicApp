@@ -1,3 +1,4 @@
+import Link from "next/link";
 import SearchItemInterface from "../../utils/interfaces/SearchItem";
 import styles from "./FoundItems.module.scss";
 
@@ -10,46 +11,51 @@ const FoundItemsList = ({ items }: IProps) => {
     <div className={styles.items}>
       <h4>Songs</h4>
       {items.songs.map(function (s) {
-        const songLink = `/songs`;
+        const songLink = `/songs/${s.id}`;
         return (
-          <div key={s.id}>
-            <img src={s.imageUrl} alt={s.title} />
+          <Link href={songLink} key={s.id}>
             <div>
-              <p>Title: {s.title}</p>
-              <p>Author: {s.artistId}</p>
+              <img src={s.imageUrl} alt={s.title} />
+              <div>
+                <p>Title: {s.title}</p>
+                <p>Author: {s.artistId}</p>
+              </div>
             </div>
-          </div>
+          </Link>
         );
       })}
       {items.songs.length === 0 ? <p>Nothing was found</p> : null}
 
       <h4>Artists</h4>
       {items.artists.map(function (a) {
-        const artistLink = `/artists`;
+        const artistLink = `/artists/${a.id}`;
         return (
-          <div key={a.id}>
-            <img src={a.url} alt={a.name} />
+          <Link href={artistLink} key={a.id}>
             <div>
-              <p>{a.name}</p>
-              <p>Artists Names: {a.name.length}</p>
+              <img src={a.url} alt={a.name} />
+              <div>
+                <p>{a.name}</p>
+                <p>Artists Names: {a.name.length}</p>
+              </div>
             </div>
-          </div>
+          </Link>
         );
       })}
       {items.artists.length === 0 ? <p>Nothing was found</p> : null}
 
       <h4>Playlists</h4>
       {items.playlists.map(function (p) {
-        const playlistLink = `/playlists`;
-
+        const playlistLink = `/playlists/${p.id}`;
         return (
-          <div key={p.id}>
-            <img src={p.imageUrl} alt={p.title} />
+          <Link href={playlistLink} key={p.id}>
             <div>
-              <p>{p.title}</p>
-              <p>Songs count: {p.songIds?.length}</p>
+              <img src={p.imageUrl} alt={p.title} />
+              <div>
+                <p>{p.title}</p>
+                <p>Songs count: {p.songIds?.length}</p>
+              </div>
             </div>
-          </div>
+          </Link>
         );
       })}
       {items.playlists.length === 0 ? <p>Nothing was found</p> : null}
