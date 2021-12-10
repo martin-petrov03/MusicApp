@@ -44,7 +44,7 @@ const getArtists = async () => {
   try {
     const artistsSnapshot = await getDocs(artistsCol);
     const artists = artistsSnapshot.docs.map((doc) => doc.data());
-    return artists;
+    return artists.sort((a, b) => a.id - b.id);
   } catch (error) {
     console.log(error);
   }
