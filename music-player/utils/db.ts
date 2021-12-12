@@ -70,7 +70,7 @@ const getPlaylists = async () => {
   try {
     const playlistsSnapshot = await getDocs(playlistsCol);
     const playlists = playlistsSnapshot.docs.map((doc) => doc.data());
-    return playlists;
+    return playlists.sort((a, b) => a.id - b.id);
   } catch (error) {
     console.log(error);
   }
