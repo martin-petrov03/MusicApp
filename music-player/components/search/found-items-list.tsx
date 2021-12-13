@@ -24,7 +24,12 @@ const FoundItemsList = ({ items }: IProps) => {
           </Link>
         );
       })}
-      {items.songs.length === 0 ? <p>Nothing was found</p> : null}
+      {items.songs.length === 0 ? (
+        <div>
+          <p>Nothing was found</p>
+          <img src="/images/not-found.png" alt="not-found" />
+        </div>
+      ) : null}
 
       <h4>Artists</h4>
       {items.artists.map(function (a) {
@@ -41,7 +46,12 @@ const FoundItemsList = ({ items }: IProps) => {
           </Link>
         );
       })}
-      {items.artists.length === 0 ? <p>Nothing was found</p> : null}
+      {items.artists.length === 0 ? (
+        <div>
+          <p>Nothing was found</p>
+          <img src="/images/not-found.png" alt="not-found" />
+        </div>
+      ) : null}
 
       <h4>Playlists</h4>
       {items.playlists.map(function (p) {
@@ -58,7 +68,12 @@ const FoundItemsList = ({ items }: IProps) => {
           </Link>
         );
       })}
-      {items.playlists.length === 0 ? <p>Nothing was found</p> : null}
+      {items.playlists.length === 0 ? (
+        <div>
+          <p>Nothing was found</p>
+          <img src="/images/not-found.png" alt="not-found" />
+        </div>
+      ) : null}
     </div>
   );
 };
