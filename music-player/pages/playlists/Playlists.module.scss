@@ -1,13 +1,8 @@
 @import "./variables.scss";
 
 .container {
-  width: 100%;
-  display: block;
-  margin: 0 auto;
-  text-align: center;
-
   .heading {
-    margin: -1em 0 2em 0;
+    margin-bottom: 2em;
   }
 
   .link {
@@ -21,14 +16,5 @@
 
   svg:hover {
     fill: $text-hover;
-  }
-}
-
-@media only screen and (max-width: 740px) {
-  .container {
-    h1 {
-      text-align: center;
-      margin: 1em 0;
-    }
   }
 }

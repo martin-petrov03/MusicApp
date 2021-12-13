@@ -23,12 +23,12 @@ a {
   flex-direction: row;
 
   .component {
-    width: 100em;
-    height: 25em;
+    width: 70%;
     display: flex;
     flex-direction: column;
+    margin: 0 auto;
+    text-align: center;
     color: $text-color;
-    margin: 0 2em;
   }
 }
 

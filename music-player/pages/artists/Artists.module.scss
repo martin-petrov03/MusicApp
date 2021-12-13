@@ -1,19 +1,5 @@
 .container {
-  display: block;
-  width: 100%;
-  margin: 0 auto;
-  text-align: center;
-
   .heading {
     margin-bottom: 2em;
-  }
-}
-
-@media only screen and (max-width: 740px) {
-  .container {
-    h1 {
-      text-align: center;
-      margin: 1em 0;
-    }
   }
 }
