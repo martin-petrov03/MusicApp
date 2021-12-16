@@ -40,3 +40,12 @@
     color: $text-hover;
   }
 }
+
+#notFound {
+  display: block;
+
+  img {
+    width: 5em;
+    height: auto;
+  }
+}

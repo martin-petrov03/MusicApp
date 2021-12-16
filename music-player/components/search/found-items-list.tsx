@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Fragment } from "react";
 import SearchItemInterface from "../../utils/interfaces/SearchItem";
 import styles from "./FoundItems.module.scss";
 
@@ -65,8 +66,7 @@ const FoundItemsList = ({ items }: IProps) => {
 
 const NotFound = () => {
   return (
-    <div>
-      <p>Nothing was found</p>
+    <div id={styles.notFound}>
       <img src="/images/not-found.png" alt="not-found" />
     </div>
   );
