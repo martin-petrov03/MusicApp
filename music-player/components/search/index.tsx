@@ -19,7 +19,7 @@ const Search = () => {
       <form onSubmit={(e) => search(e)}>
         <label htmlFor="search-box">
           <input type="submit" className={styles.submit} />
-          <div className={styles.icon}>
+          <div onClick={(e) => search(e)} className={styles.icon}>
             <svg
               id="Bold"
               xmlns="http://www.w3.org/2000/svg"
