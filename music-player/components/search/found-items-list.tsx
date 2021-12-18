@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { Fragment } from "react";
 import SearchItemInterface from "../../utils/interfaces/SearchItem";
 import styles from "./FoundItems.module.scss";
 
@@ -33,7 +32,7 @@ const FoundItemsList = ({ items }: IProps) => {
         return (
           <Link href={artistLink} key={a.id}>
             <div>
-              <img src={a.url} alt={a.name} />
+              <Image src={a.url} alt={a.name} />
               <div>
                 <p>{a.name}</p>
                 <p>Artists Names: {a.name.length}</p>
@@ -50,7 +49,7 @@ const FoundItemsList = ({ items }: IProps) => {
         return (
           <Link href={playlistLink} key={p.id}>
             <div>
-              <img src={p.imageUrl} alt={p.title} />
+              <Image src={p.imageUrl} alt={p.title} />
               <div>
                 <p>{p.title}</p>
                 <p>Songs count: {p.songIds?.length}</p>
@@ -67,7 +66,7 @@ const FoundItemsList = ({ items }: IProps) => {
 const NotFound = () => {
   return (
     <div id={styles.notFound}>
-      <img src="/images/not-found.png" alt="not-found" />
+      <Image src="/images/not-found.png" alt="not-found" />
     </div>
   );
 };
