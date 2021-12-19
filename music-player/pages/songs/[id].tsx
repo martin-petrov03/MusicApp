@@ -54,8 +54,8 @@ interface IContext {
 
 export async function getStaticProps(context: IContext) {
   const id = Number(context.params.id);
-  const songUrl = await getSongUrl();
   const song = await getSong(id);
+  const songUrl = await getSongUrl(song?.title);
 
   return {
     props: {

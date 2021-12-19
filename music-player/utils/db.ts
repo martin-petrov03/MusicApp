@@ -5,7 +5,7 @@ import {
   getDocs,
   addDoc,
 } from "firebase/firestore/lite";
-import { getStorage, ref, getDownloadURL } from "firebase/storage";
+import { getStorage, ref, listAll, getDownloadURL } from "firebase/storage";
 import PlaylistInterface from "./interfaces/Playlist";
 
 const db = getFirestore(app);
@@ -24,15 +24,19 @@ const getSong = async (id: number) => {
   return song;
 };
 
-const getSongUrl = async () => {
-  const storage = getStorage();
-  const storageRef = ref(
-    storage,
-    "songs/Nirvana - Smells Like Teen Spirit (Official Music Video).mp3"
-  );
-
+const getSongUrl = async (title: string) => {
   try {
-    const url = await getDownloadURL(storageRef);
+    const storage = getStorage();
+    const storageRef = ref(storage, `songs`);
+    const files = await listAll(storageRef);
+    const currentSong = await files.items.find((i) =>
+      i.toString().includes(title)
+    );
+
+    const currentSongFullPath = currentSong?.fullPath;
+    const songRef = ref(storage, currentSongFullPath);
+    const url = await getDownloadURL(songRef);
+
     return url;
   } catch (error) {
     return "";

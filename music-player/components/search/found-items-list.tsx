@@ -32,7 +32,7 @@ const FoundItemsList = ({ items }: IProps) => {
         return (
           <Link href={artistLink} key={a.id}>
             <div>
-              <Image src={a.url} alt={a.name} />
+              <img src={a.url} alt={a.name} />
               <div>
                 <p>{a.name}</p>
                 <p>Artists Names: {a.name.length}</p>
@@ -49,7 +49,7 @@ const FoundItemsList = ({ items }: IProps) => {
         return (
           <Link href={playlistLink} key={p.id}>
             <div>
-              <Image src={p.imageUrl} alt={p.title} />
+              <img src={p.imageUrl} alt={p.title} />
               <div>
                 <p>{p.title}</p>
                 <p>Songs count: {p.songIds?.length}</p>
@@ -66,7 +66,7 @@ const FoundItemsList = ({ items }: IProps) => {
 const NotFound = () => {
   return (
     <div id={styles.notFound}>
-      <Image src="/images/not-found.png" alt="not-found" />
+      <img src="/images/not-found.png" alt="not-found" />
     </div>
   );
 };
