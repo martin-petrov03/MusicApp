@@ -10,6 +10,13 @@ import PlaylistInterface from "./interfaces/Playlist";
 
 const db = getFirestore(app);
 
+const getAllSongsFilex = async () => {
+  const storage = getStorage();
+  const storageRef = ref(storage, `songs`);
+  const files = await listAll(storageRef);
+  return files;
+};
+
 const getSongs = async () => {
   const songsCol = collection(db, "songs");
   const songSnapshot = await getDocs(songsCol);
@@ -26,9 +33,7 @@ const getSong = async (id: number) => {
 
 const getSongUrl = async (title: string) => {
   try {
-    const storage = getStorage();
-    const storageRef = ref(storage, `songs`);
-    const files = await listAll(storageRef);
+    const files = await getAllSongsFilex();
     const currentSong = await files.items.find((i) =>
       i.toString().includes(title)
     );
