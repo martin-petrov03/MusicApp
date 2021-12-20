@@ -7,10 +7,11 @@ import {
 } from "firebase/firestore/lite";
 import { getStorage, ref, listAll, getDownloadURL } from "firebase/storage";
 import PlaylistInterface from "./interfaces/Playlist";
+import SongDetailsInterface from "./interfaces/SongDetails";
 
 const db = getFirestore(app);
 
-const getAllSongsFilex = async () => {
+const getAllSongsFiles = async () => {
   const storage = getStorage();
   const storageRef = ref(storage, `songs`);
   const files = await listAll(storageRef);
@@ -33,7 +34,8 @@ const getSong = async (id: number) => {
 
 const getSongUrl = async (title: string) => {
   try {
-    const files = await getAllSongsFilex();
+    const storage = getStorage();
+    const files = await getAllSongsFiles();
     const currentSong = await files.items.find((i) =>
       i.toString().includes(title)
     );
@@ -41,7 +43,6 @@ const getSongUrl = async (title: string) => {
     const currentSongFullPath = currentSong?.fullPath;
     const songRef = ref(storage, currentSongFullPath);
     const url = await getDownloadURL(songRef);
-
     return url;
   } catch (error) {
     return "";
@@ -88,6 +89,7 @@ const getPlaylists = async () => {
 const getPlaylist = async (id: string) => {
   const playlists = await getPlaylists();
   const playlist = await playlists?.find((p) => p.id === id);
+
   return playlist;
 };
 
@@ -96,10 +98,13 @@ const getSongsDetailsInPlaylist = async (id: string) => {
   const result: any = {};
 
   for (let i = 0; i < playlist?.songIds.length; i++) {
-    const songDetails = await getSong(playlist?.songIds[i]);
+    const song = await getSong(playlist?.songIds[i]);
+    const currentSongUrl = await getSongUrl(song?.title);
+
+    const songDetails = song as SongDetailsInterface;
+    songDetails.songUrl = currentSongUrl;
     result[i + 1] = songDetails;
   }
-
   return result;
 };
 

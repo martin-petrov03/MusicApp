@@ -1,28 +1,56 @@
 import type { NextPage } from "next";
+import { useState } from "react";
 import Link from "next/link";
 import { getPlaylist, getSongsDetailsInPlaylist } from "../../utils/db";
 import { MetaTags } from "../../components/index";
 import PlaylistInterface from "../../utils/interfaces/Playlist";
-import SongInterface from "../../utils/interfaces/Song";
+import SongDetailsInterface from "../../utils/interfaces/SongDetails";
 import styles from "./PlaylistDetails.module.scss";
 
 interface IProps extends React.ClassAttributes<PlaylistInterface> {
   playlist: PlaylistInterface;
-  songDetails: Array<SongInterface>;
+  songDetails: Array<SongDetailsInterface>;
 }
 
 const PlaylistDetails: NextPage<IProps> = (props: IProps) => {
+  const [currentPlayingUrl, setCurrentPlayingUrl] = useState<string>("");
+  const [index, setIndex] = useState<number>(0);
+  const [songUrls, setSongUrls] = useState<Array<string>>([]);
+
   const playlist = props.playlist;
   const songDetails = props.songDetails;
 
   const playPlaylist = (isShuffle: boolean) => {
-    //TODO
+    const urls: Array<string> = [];
+
+    songDetails.forEach((s) => {
+      urls.push(s.songUrl);
+    });
+    setSongUrls(urls);
+    setCurrentPlayingUrl(urls[index]);
+  };
+
+  const nextSong = (idx: number) => {
+    setCurrentPlayingUrl(songUrls[idx + 1]);
+    setIndex(idx + 1);
   };
 
   return (
     <div>
       <MetaTags title="Playlist Details" description="Playlist details page" />
       <div className={styles.container}>
+        <div className={styles.player}>
+          <audio
+            controls
+            src={currentPlayingUrl}
+            onEnded={() => nextSong(index)}
+            autoPlay
+          >
+            Your browser does not support the
+            <code>audio</code> element.
+          </audio>
+        </div>
+
         <div key={playlist.id}>
           <h2>{playlist.title}</h2>
           <img src={playlist.imageUrl} alt={playlist.title} />
@@ -63,22 +91,27 @@ const PlaylistDetails: NextPage<IProps> = (props: IProps) => {
               </li>
             </div>
             <ol>
-              {songDetails.map((s, idx) => (
-                <Link href={`/songs/${s.id}`} key={s.id}>
-                  <div className={styles.row}>
-                    <div>
-                      <p>{idx + 1}</p>
+              {songDetails.map((song, idx) => {
+                const classStr = idx === index ? styles.playing : "";
+                return (
+                  <Link href={`/songs/${song.id}`} key={song.id}>
+                    <div className={classStr}>
+                      <div className={styles.row}>
+                        <div>
+                          <p>{idx + 1}</p>
+                        </div>
+                        <div className={styles.group}>
+                          <img src={song.imageUrl} alt={song.title} />
+                          <p>{song.title}</p>
+                        </div>
+                        <div>
+                          <p>{song.duration}</p>
+                        </div>
+                      </div>
                     </div>
-                    <div className={styles.group}>
-                      <img src={s.imageUrl} alt={s.title} />
-                      <p>{s.title}</p>
-                    </div>
-                    <div>
-                      <p>{s.duration}</p>
-                    </div>
-                  </div>
-                </Link>
-              ))}
+                  </Link>
+                );
+              })}
             </ol>
           </div>
         </div>
@@ -97,7 +130,12 @@ export async function getServerSideProps(context: IContext) {
   const songDetails = await getSongsDetailsInPlaylist(playlist?.id);
   const songDetailsArray = Object.entries(songDetails).map((e) => e[1]);
 
-  return { props: { playlist, songDetails: songDetailsArray } };
+  return {
+    props: {
+      playlist,
+      songDetails: songDetailsArray,
+    },
+  };
 }
 
 export default PlaylistDetails;

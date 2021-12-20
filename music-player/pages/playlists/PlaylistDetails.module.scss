@@ -6,6 +6,10 @@
   margin: 0 auto;
   text-align: center;
 
+  .player {
+    display: block;
+  }
+
   img {
     width: 10em;
     height: auto;
@@ -37,6 +41,10 @@
     width: 70%;
     margin: 0 auto;
     padding: 0 1em;
+
+    .playing {
+      color: $text-hover;
+    }
 
     .row {
       list-style-type: none;
