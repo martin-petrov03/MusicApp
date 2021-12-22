@@ -1,5 +1,5 @@
 import type { NextPage } from "next";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Link from "next/link";
 import { getPlaylist, getSongsDetailsInPlaylist } from "../../utils/db";
 import {
@@ -39,9 +39,31 @@ const PlaylistDetails: NextPage<IProps> = (props: IProps) => {
     setCurrentPlayingUrl(urls[index]);
   };
 
+  const previousSong = (idx: number) => {
+    const previousSongIndex = idx - 1;
+
+    if (previousSongIndex >= 0) {
+      setCurrentPlayingUrl(songUrls[idx - 1]);
+      setIndex(idx - 1);
+    }
+  };
+
   const nextSong = (idx: number) => {
-    setCurrentPlayingUrl(songUrls[idx + 1]);
-    setIndex(idx + 1);
+    const nextSongIndex = idx + 1;
+
+    if (nextSongIndex >= songUrls.length) {
+      setCurrentPlayingUrl(songUrls[0]);
+      setIndex(0);
+    } else {
+      setCurrentPlayingUrl(songUrls[idx + 1]);
+      setIndex(idx + 1);
+    }
+  };
+
+  const pauseSong = () => {
+    setIsPlaying(false);
+    setCurrentPlayingUrl("");
+    setIndex(0);
   };
 
   return (
@@ -68,13 +90,13 @@ const PlaylistDetails: NextPage<IProps> = (props: IProps) => {
             <div>
               {isPlaying ? (
                 <div className={styles.buttonSection}>
-                  <div>
+                  <div onClick={() => previousSong(index)}>
                     <RewindButton />
                   </div>
-                  <div>
+                  <div onClick={() => pauseSong()}>
                     <PauseButton />
                   </div>
-                  <div>
+                  <div onClick={() => nextSong(index)}>
                     <ForwardButton />
                   </div>
                 </div>
