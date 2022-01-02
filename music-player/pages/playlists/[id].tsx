@@ -1,5 +1,5 @@
 import type { NextPage } from "next";
-import { useState, useRef } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { getPlaylist, getSongsDetailsInPlaylist } from "../../utils/db";
 import {
