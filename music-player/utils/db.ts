@@ -118,9 +118,11 @@ const getItemsBySearch = async (input: string) => {
   const songs = (await getSongs())?.filter((s) =>
     s.title.toLowerCase().includes(inputToLower)
   );
-  //TODO add better search artist sensitivity
-  const artists = (await getArtists())?.filter((a) =>
-    a.name.toLowerCase().includes(inputToLower)
+  const artists = (await getArtists())?.filter(
+    (a) =>
+      a.name.toLowerCase().includes(inputToLower) ||
+      a.artistsNames.some((e: any) => e.toLowerCase().includes(inputToLower)) ||
+      a.top5Songs.some((s: any) => s.toLowerCase().includes(inputToLower))
   );
   const playlists = (await getPlaylists())?.filter((p) =>
     p.title.toLowerCase().includes(inputToLower)
