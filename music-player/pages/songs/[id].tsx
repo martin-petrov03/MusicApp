@@ -1,9 +1,11 @@
 import type { NextPage } from "next";
-import { useEffect, useState } from "react";
-import { getSongs, getSong, getSongUrl } from "../../utils/db";
+import { useRouter } from "next/router";
+import { useEffect, useState, useRef } from "react";
+import { getSongs, getSongsCount, getSong, getSongUrl } from "../../utils/db";
 import {
   MetaTags,
   PauseButton,
+  PlayButton,
   RewindButton,
   ForwardButton,
 } from "../../components/index";
@@ -15,16 +17,37 @@ interface Props {
 }
 
 const Song: NextPage<Props> = (props) => {
+  const router = useRouter();
+  const audioRef = useRef() as React.MutableRefObject<HTMLAudioElement>;
   const song = props.song;
   const [isPlaying, setIsPlaying] = useState<boolean>(true);
-  const [songUrl, setSongUrl] = useState<string>(song.songUrl);
+  const [songUrl, setSongUrl] = useState<string>("");
 
-  function ToggleSongPlaying() {
-    setIsPlaying(!isPlaying);
-    if (!isPlaying) {
+  useEffect(() => {
+    setSongUrl(song.songUrl);
+  });
+
+  function playPrevious() {
+    if (song.id > 1) {
       setSongUrl("");
+      router.push(`/songs/${song.id - 1}`);
+    }
+  }
+
+  function toggleSongPlaying() {
+    if (isPlaying) {
+      audioRef.current.pause();
     } else {
-      setSongUrl(song.songUrl);
+      audioRef.current.play();
+    }
+    setIsPlaying(!isPlaying);
+  }
+
+  async function playNext() {
+    const songsCount = await getSongsCount();
+    if (song.id < songsCount) {
+      setSongUrl("");
+      router.push(`/songs/${song.id + 1}`);
     }
   }
 
@@ -35,18 +58,30 @@ const Song: NextPage<Props> = (props) => {
         <div className={styles.card}>
           <h2>{song.title}</h2>
           <img src={song.imageUrl} alt={song.title} />
-          <audio controls src={songUrl} autoPlay>
+          <audio
+            controls
+            src={songUrl}
+            ref={audioRef}
+            onEnded={() => playNext()}
+            autoPlay
+          >
             Your browser does not support the
             <code>audio</code> element.
           </audio>
           <div className={styles.controlPanel}>
-            <div className={styles.songBtn}>
+            <div className={styles.songBtn} onClick={playPrevious}>
               <RewindButton />
             </div>
-            <div className={styles.songBtn} onClick={ToggleSongPlaying}>
-              <PauseButton />
-            </div>
-            <div className={styles.songBtn}>
+            {isPlaying ? (
+              <div className={styles.songBtn} onClick={toggleSongPlaying}>
+                <PauseButton />
+              </div>
+            ) : (
+              <div className={styles.songBtn} onClick={toggleSongPlaying}>
+                <PlayButton />
+              </div>
+            )}
+            <div className={styles.songBtn} onClick={playNext}>
               <ForwardButton />
             </div>
           </div>

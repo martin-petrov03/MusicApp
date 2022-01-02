@@ -18,6 +18,11 @@ const getAllSongsFiles = async () => {
   return files;
 };
 
+const getSongsCount = async () => {
+  const songs = await getSongs();
+  return songs.length;
+};
+
 const getSongs = async () => {
   const songsCol = collection(db, "songs");
   const songSnapshot = await getDocs(songsCol);
@@ -130,6 +135,7 @@ const getItemsBySearch = async (input: string) => {
 
 export {
   getSongs,
+  getSongsCount,
   getSong,
   getSongUrl,
   getArtists,
