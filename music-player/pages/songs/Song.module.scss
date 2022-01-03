@@ -106,3 +106,55 @@
     }
   }
 }
+
+@media only screen and (max-width: 630px) {
+  .container {
+    .card {
+      width: 60%;
+      margin: 0 auto;
+
+      img {
+        height: 8em;
+      }
+
+      .controlPanel {
+        .songBtn > button {
+          width: 3em;
+          height: 3em;
+          margin: 0 0.3em;
+
+          svg {
+            width: 1.5em;
+            height: 1.5em;
+            margin: 0.2em -0.2em;
+          }
+        }
+
+        //play & pause button
+        .songBtn:nth-child(2) > button {
+          width: 5em;
+          height: 5em;
+
+          svg {
+            width: 2em;
+            height: 2em;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .container {
+    .card {
+      h2 {
+        font-size: 1rem;
+      }
+
+      img {
+        height: 4em;
+      }
+    }
+  }
+}

@@ -50,3 +50,23 @@
     height: auto;
   }
 }
+
+@media only screen and (max-width: 650px) {
+  .items div {
+    img {
+      margin: auto 0;
+      width: 6em;
+      height: auto;
+    }
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .items div {
+    display: block;
+
+    div {
+      display: block;
+    }
+  }
+}

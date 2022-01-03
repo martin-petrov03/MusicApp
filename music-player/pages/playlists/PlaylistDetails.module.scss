@@ -89,14 +89,60 @@
         }
 
         img {
-          width: 3em;
-          height: auto;
+          width: auto;
+          height: 3em;
           margin-top: 0.5em;
         }
       }
 
       .row:hover {
         color: $text-hover;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .container {
+    .buttonSection {
+      margin-top: 2em;
+    }
+
+    .wrapper {
+      width: 25em;
+
+      ol .row {
+        p {
+          margin: 0;
+          width: 7em;
+        }
+
+        img {
+          width: 3em;
+          height: 2em;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .container .wrapper {
+    width: 85%;
+
+    .row {
+      li:nth-child(3),
+      div:nth-child(3) {
+        display: none;
+      }
+
+      li:nth-child(2) {
+        margin-right: auto;
+      }
+
+      img {
+        width: 2em;
+        height: 1em;
       }
     }
   }
