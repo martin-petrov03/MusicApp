@@ -102,7 +102,7 @@ const getPlaylist = async (id: number) => {
   return playlist;
 };
 
-const getSongsDetailsInPlaylist = async (id: string) => {
+const getSongsDetailsInPlaylist = async (id: number) => {
   const playlist = await getPlaylist(id);
   const result: any = {};
 
