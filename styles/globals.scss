@@ -1,0 +1,47 @@
+@import "./variables.scss";
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+#content {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+
+  .component {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    margin: -1.5em auto 0 auto;
+    padding: 0;
+    text-align: center;
+    color: $text-color;
+  }
+}
+
+@media only screen and (max-width: 740px) {
+  #content {
+    display: block;
+    margin: 0 auto;
+
+    .component {
+      width: 100vw;
+      text-align: center;
+      margin: 0;
+    }
+  }
+}

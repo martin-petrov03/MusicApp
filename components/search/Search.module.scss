@@ -1,0 +1,57 @@
+@import "./variables.scss";
+
+.searchSection {
+  display: flex;
+  margin: 1em 0;
+  padding-top: 1.6em;
+
+  form {
+    display: flex;
+  }
+
+  .submit {
+    display: none;
+  }
+
+  .icon {
+    line-height: 2em;
+    margin-right: 0.6em;
+    margin-top: 0.4em;
+
+    svg {
+      width: 1.6em;
+      height: 1.6em;
+    }
+  }
+
+  svg:hover {
+    fill: $base-color;
+  }
+
+  .search {
+    border-radius: 2em;
+    width: 20em;
+    height: 3em;
+    padding-left: 1em;
+    margin-right: auto;
+  }
+
+  .search:focus {
+    outline: none;
+  }
+}
+
+@media only screen and (max-width: 740px) {
+  .searchSection {
+    margin: 0 auto;
+    padding: 0 auto;
+    width: 40%;
+    max-width: 14em;
+    min-width: 7em;
+
+    .search {
+      margin: 0 auto;
+      width: 100%;
+    }
+  }
+}
