@@ -13,8 +13,6 @@ interface Props {
 }
 
 const AddPlaylist: NextPage<Props> = (props) => {
-  // let songs = props.songs;
-
   const router = useRouter();
   const [title, setTitle] = useState<string>();
   const [imageUrl, setImageUrl] = useState<string>();
@@ -40,7 +38,7 @@ const AddPlaylist: NextPage<Props> = (props) => {
   const handleSubmit = async (event: any) => {
     event.preventDefault();
     const currentId = await getPlaylistsCount();
-    console.log(selectedSongIds);
+
     const newPlaylist: PlaylistInterface = {
       id: currentId ? currentId + 1 : Math.random(),
       title: title || "",
