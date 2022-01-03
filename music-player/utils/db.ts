@@ -20,7 +20,7 @@ const getAllSongsFiles = async () => {
 
 const getSongsCount = async () => {
   const songs = await getSongs();
-  return songs.length;
+  return songs?.length;
 };
 
 const getSongs = async () => {
@@ -80,6 +80,11 @@ const addPlaylist = async (newPlaylist: PlaylistInterface) => {
   }
 };
 
+const getPlaylistsCount = async () => {
+  const playlists = await getPlaylists();
+  return playlists?.length;
+};
+
 const getPlaylists = async () => {
   const playlistsCol = collection(db, "playlists");
   try {
@@ -91,10 +96,9 @@ const getPlaylists = async () => {
   }
 };
 
-const getPlaylist = async (id: string) => {
+const getPlaylist = async (id: number) => {
   const playlists = await getPlaylists();
   const playlist = await playlists?.find((p) => p.id === id);
-
   return playlist;
 };
 
@@ -143,6 +147,7 @@ export {
   getArtists,
   getArtist,
   addPlaylist,
+  getPlaylistsCount,
   getPlaylists,
   getPlaylist,
   getSongsDetailsInPlaylist,

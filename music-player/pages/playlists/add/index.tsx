@@ -1,27 +1,51 @@
 import type { NextPage } from "next";
 import { useRouter } from "next/router";
 import { useState } from "react";
-import uniqueString from "unique-string";
 import { MetaTags } from "../../../components/index";
-import { addPlaylist } from "../../../utils/db";
+import { getSongs, addPlaylist, getPlaylistsCount } from "../../../utils/db";
 import PlaylistInterface from "../../../utils/interfaces/Playlist";
+import SongInterface from "../../../utils/interfaces/Song";
 import validate from "./validate";
 import styles from "./AddPlaylist.module.scss";
 
-const AddPlaylist: NextPage = () => {
+interface Props {
+  songs: SongInterface[];
+}
+
+const AddPlaylist: NextPage<Props> = (props) => {
+  // let songs = props.songs;
+
   const router = useRouter();
   const [title, setTitle] = useState<string>();
   const [imageUrl, setImageUrl] = useState<string>();
   const [errorMessage, setErrorMessage] = useState<string>();
   const [isSubmitted, setIsSubmitted] = useState<boolean>();
+  const [songs, setSongs] = useState<Array<SongInterface>>(props.songs);
+  const [selectedSongIds, setSelectedSongIds] = useState<Array<number>>();
 
-  const handleSubmit = (event: any) => {
+  function handleSelectionChange(e: any) {
+    const currentId = Number(e.target.value);
+    if (selectedSongIds) {
+      setSelectedSongIds([...selectedSongIds, currentId]);
+    } else {
+      setSelectedSongIds([currentId]);
+    }
+
+    const updatedSongsArray = songs?.filter(function (value) {
+      return value.id !== currentId;
+    });
+    setSongs(updatedSongsArray);
+  }
+
+  const handleSubmit = async (event: any) => {
     event.preventDefault();
+    const currentId = await getPlaylistsCount();
+    console.log(selectedSongIds);
     const newPlaylist: PlaylistInterface = {
-      id: uniqueString(),
+      id: currentId ? currentId + 1 : Math.random(),
       title: title || "",
       imageUrl: imageUrl || "",
-      songIds: [],
+      songIds: selectedSongIds ? selectedSongIds : [],
     };
 
     const message = validate(newPlaylist);
@@ -31,7 +55,7 @@ const AddPlaylist: NextPage = () => {
     }
     addPlaylist(newPlaylist);
     setIsSubmitted(true);
-    router.back();
+    router.push("/playlists");
   };
 
   return (
@@ -62,6 +86,19 @@ const AddPlaylist: NextPage = () => {
           onChange={(e) => setImageUrl(e.target.value)}
         />
 
+        <label htmlFor="songs" className={styles.selectionLabel}>
+          Choose songs:
+        </label>
+        <p>Number of songs: {selectedSongIds?.length}</p>
+        <select id="songs" multiple onChange={handleSelectionChange}>
+          {songs?.map((s) => (
+            <option value={s.id} key={s.id}>
+              {s.title}
+            </option>
+          ))}
+        </select>
+        <br />
+
         <button
           type="submit"
           disabled={isSubmitted}
@@ -77,3 +114,19 @@ const AddPlaylist: NextPage = () => {
 };
 
 export default AddPlaylist;
+
+export async function getStaticProps() {
+  const songs = await getSongs();
+
+  return {
+    props: {
+      songs: songs?.map((song) => ({
+        id: song.id,
+        title: song.title,
+        imageUrl: song.imageUrl,
+        artistId: song.artistId,
+      })),
+    },
+    revalidate: 5,
+  };
+}

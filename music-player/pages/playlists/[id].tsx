@@ -172,8 +172,9 @@ interface IContext {
 }
 
 export async function getServerSideProps(context: IContext) {
-  const id = context.params.id;
+  const id = Number(context.params.id);
   const playlist = await getPlaylist(id);
+
   const songDetails = await getSongsDetailsInPlaylist(playlist?.id);
   const songDetailsArray = Object.entries(songDetails).map((e) => e[1]);
 
