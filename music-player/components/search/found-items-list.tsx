@@ -9,7 +9,7 @@ interface IProps {
 const FoundItemsList = ({ items }: IProps) => {
   return (
     <div className={styles.items}>
-      <h4>Songs</h4>
+      <h3>Songs</h3>
       {items.songs.map(function (s) {
         const songLink = `/songs/${s.id}`;
         return (
@@ -26,7 +26,7 @@ const FoundItemsList = ({ items }: IProps) => {
       })}
       {items.songs.length === 0 ? <NotFound /> : null}
 
-      <h4>Artists</h4>
+      <h3>Artists</h3>
       {items.artists.map(function (a) {
         const artistLink = `/artists/${a.id}`;
         return (
@@ -34,8 +34,7 @@ const FoundItemsList = ({ items }: IProps) => {
             <div>
               <img src={a.url} alt={a.name} />
               <div>
-                <p>{a.name}</p>
-                <p>Artists Names: {a.name.length}</p>
+                <h4>{a.name}</h4>
               </div>
             </div>
           </Link>
@@ -43,7 +42,7 @@ const FoundItemsList = ({ items }: IProps) => {
       })}
       {items.artists.length === 0 ? <NotFound /> : null}
 
-      <h4>Playlists</h4>
+      <h3>Playlists</h3>
       {items.playlists.map(function (p) {
         const playlistLink = `/playlists/${p.id}`;
         return (

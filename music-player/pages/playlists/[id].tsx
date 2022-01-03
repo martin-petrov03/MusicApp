@@ -1,5 +1,5 @@
 import type { NextPage } from "next";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Link from "next/link";
 import { getPlaylist, getSongsDetailsInPlaylist } from "../../utils/db";
 import {
@@ -20,16 +20,19 @@ interface IProps extends React.ClassAttributes<PlaylistInterface> {
 }
 
 const PlaylistDetails: NextPage<IProps> = (props: IProps) => {
-  const [isPlaying, setIsPlaying] = useState<boolean>(false);
+  const audioRef = useRef() as React.MutableRefObject<HTMLAudioElement>;
+  const [isStarted, setIsStarted] = useState<boolean>(false);
+  const [isPlaying, setIsPlaying] = useState<boolean>(true);
   const [currentPlayingUrl, setCurrentPlayingUrl] = useState<string>("");
   const [index, setIndex] = useState<number>(0);
   const [songUrls, setSongUrls] = useState<Array<string>>([]);
 
   const playlist = props.playlist;
-  const songDetails = props.songDetails;
+  let songDetails = props.songDetails;
 
-  const playPlaylist = (isShuffle: boolean) => {
-    setIsPlaying(true);
+  const startPlaylist = (isShuffle: boolean) => {
+    if (isShuffle) songDetails = songDetails.sort(() => 0.5 - Math.random());
+    setIsStarted(true);
     const urls: Array<string> = [];
 
     songDetails.forEach((s) => {
@@ -60,10 +63,13 @@ const PlaylistDetails: NextPage<IProps> = (props: IProps) => {
     }
   };
 
-  const pauseSong = () => {
-    setIsPlaying(false);
-    setCurrentPlayingUrl("");
-    setIndex(0);
+  const toggleSongPlaying = () => {
+    if (isPlaying) {
+      audioRef.current.pause();
+    } else {
+      audioRef.current.play();
+    }
+    setIsPlaying(!isPlaying);
   };
 
   return (
@@ -74,6 +80,7 @@ const PlaylistDetails: NextPage<IProps> = (props: IProps) => {
           <audio
             controls
             src={currentPlayingUrl}
+            ref={audioRef}
             onEnded={() => nextSong(index)}
             autoPlay
           >
@@ -88,24 +95,30 @@ const PlaylistDetails: NextPage<IProps> = (props: IProps) => {
 
           <div className={styles.buttonSection}>
             <div>
-              {isPlaying ? (
+              {isStarted ? (
                 <div className={styles.buttonSection}>
                   <div onClick={() => previousSong(index)}>
                     <RewindButton />
                   </div>
-                  <div onClick={() => pauseSong()}>
-                    <PauseButton />
-                  </div>
+                  {isPlaying ? (
+                    <div onClick={() => toggleSongPlaying()}>
+                      <PauseButton />
+                    </div>
+                  ) : (
+                    <div onClick={() => toggleSongPlaying()}>
+                      <PlayButton />
+                    </div>
+                  )}
                   <div onClick={() => nextSong(index)}>
                     <ForwardButton />
                   </div>
                 </div>
               ) : (
                 <div className={styles.buttonSection}>
-                  <div onClick={() => playPlaylist(false)}>
+                  <div onClick={() => startPlaylist(false)}>
                     <PlayButton />
                   </div>
-                  <div onClick={() => playPlaylist(true)}>
+                  <div onClick={() => startPlaylist(true)}>
                     <ShuffleButton />
                   </div>
                 </div>
