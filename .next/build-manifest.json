@@ -1,29 +1,93 @@
 {
   "polyfillFiles": [
-    "static/chunks/polyfills.js"
+    "static/chunks/polyfills-5cd94c89d3acac5f.js"
   ],
-  "devFiles": [
-    "static/chunks/react-refresh.js"
-  ],
-  "ampDevFiles": [
-    "static/chunks/webpack.js",
-    "static/chunks/amp.js"
-  ],
+  "devFiles": [],
+  "ampDevFiles": [],
   "lowPriorityFiles": [
-    "static/development/_buildManifest.js",
-    "static/development/_ssgManifest.js",
-    "static/development/_middlewareManifest.js"
+    "static/PSucZpDtHXWRK814UT4_h/_buildManifest.js",
+    "static/PSucZpDtHXWRK814UT4_h/_ssgManifest.js",
+    "static/PSucZpDtHXWRK814UT4_h/_middlewareManifest.js"
   ],
   "pages": {
+    "/": [
+      "static/chunks/webpack-043901969ab14c5d.js",
+      "static/chunks/framework-3ccec772d1fa8b6b.js",
+      "static/chunks/main-404bdd3acbdd01ab.js",
+      "static/css/6da5fecd4b4cdb29.css",
+      "static/chunks/pages/index-86a751b9ce84af91.js"
+    ],
     "/_app": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/_app.js"
+      "static/chunks/webpack-043901969ab14c5d.js",
+      "static/chunks/framework-3ccec772d1fa8b6b.js",
+      "static/chunks/main-404bdd3acbdd01ab.js",
+      "static/css/65fc603ac4292fd7.css",
+      "static/chunks/pages/_app-f818b745ab048cd7.js"
     ],
     "/_error": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/_error.js"
+      "static/chunks/webpack-043901969ab14c5d.js",
+      "static/chunks/framework-3ccec772d1fa8b6b.js",
+      "static/chunks/main-404bdd3acbdd01ab.js",
+      "static/chunks/pages/_error-d742f979193aeae4.js"
+    ],
+    "/artists": [
+      "static/chunks/webpack-043901969ab14c5d.js",
+      "static/chunks/framework-3ccec772d1fa8b6b.js",
+      "static/chunks/main-404bdd3acbdd01ab.js",
+      "static/css/0d264c886bd3c9ed.css",
+      "static/chunks/pages/artists-0376da06d5ce23e0.js"
+    ],
+    "/artists/[id]": [
+      "static/chunks/webpack-043901969ab14c5d.js",
+      "static/chunks/framework-3ccec772d1fa8b6b.js",
+      "static/chunks/main-404bdd3acbdd01ab.js",
+      "static/css/9fdeb9faf87e24a0.css",
+      "static/chunks/pages/artists/[id]-ee31e73b30963c4b.js"
+    ],
+    "/playlists": [
+      "static/chunks/webpack-043901969ab14c5d.js",
+      "static/chunks/framework-3ccec772d1fa8b6b.js",
+      "static/chunks/main-404bdd3acbdd01ab.js",
+      "static/css/48d5b305a6f75322.css",
+      "static/chunks/pages/playlists-e06ccd95ff8b1205.js"
+    ],
+    "/playlists/[id]": [
+      "static/chunks/webpack-043901969ab14c5d.js",
+      "static/chunks/framework-3ccec772d1fa8b6b.js",
+      "static/chunks/main-404bdd3acbdd01ab.js",
+      "static/css/fe9cc472f3256e1f.css",
+      "static/chunks/pages/playlists/[id]-33204fd8f44c02c8.js"
+    ],
+    "/playlists/add": [
+      "static/chunks/webpack-043901969ab14c5d.js",
+      "static/chunks/framework-3ccec772d1fa8b6b.js",
+      "static/chunks/main-404bdd3acbdd01ab.js",
+      "static/chunks/c97d5db8-ded0901a0fd49351.js",
+      "static/chunks/513-92cee0c9c9c83c0c.js",
+      "static/css/ff793acd94deda45.css",
+      "static/chunks/pages/playlists/add-87f98ec59cd08dcf.js"
+    ],
+    "/playlists/add/validate": [
+      "static/chunks/webpack-043901969ab14c5d.js",
+      "static/chunks/framework-3ccec772d1fa8b6b.js",
+      "static/chunks/main-404bdd3acbdd01ab.js",
+      "static/chunks/pages/playlists/add/validate-85b92018629f3e03.js"
+    ],
+    "/search": [
+      "static/chunks/webpack-043901969ab14c5d.js",
+      "static/chunks/framework-3ccec772d1fa8b6b.js",
+      "static/chunks/main-404bdd3acbdd01ab.js",
+      "static/css/81cb0f6e52c8dd50.css",
+      "static/chunks/pages/search-6f388fb4ff6dee49.js"
+    ],
+    "/songs/[id]": [
+      "static/chunks/webpack-043901969ab14c5d.js",
+      "static/chunks/framework-3ccec772d1fa8b6b.js",
+      "static/chunks/main-404bdd3acbdd01ab.js",
+      "static/chunks/c97d5db8-ded0901a0fd49351.js",
+      "static/chunks/513-92cee0c9c9c83c0c.js",
+      "static/css/a7f8ddb7c4d1189f.css",
+      "static/chunks/pages/songs/[id]-2e3d99a098f46b6b.js"
     ]
   },
   "ampFirstPages": []
