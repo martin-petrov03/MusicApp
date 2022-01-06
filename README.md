@@ -6,14 +6,16 @@ Music-App is a single page application (SPA) through which you can listen popula
 In order to find what you are searhing for faster you can use the pre-built search engine.
 
 <h4>Technologies</h4>
+<ul>
+  <li>Next12</li>
+  <li>TypeScript</li>
+  <li>Firebase</li>
+  <li>SCSS</li>
+  <li>Cypress</li>
+  <li>Figma</li>
+</ul>
 
-Next12
-TypeScript
-Firebase
-SCSS
-Cypress
-Figma
-
+<h4>Purpose</h4>
 The aim of this project is to advance my Next.js, TypeScript and UI/UX skills.
 The app has a minimalistic design and it is easy to be used by everyone.
 
