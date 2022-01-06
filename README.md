@@ -10,7 +10,7 @@ In order to find what you are searhing for faster you can use the pre-built sear
   <li>Next12</li>
   <li>TypeScript</li>
   <li>Firebase</li>
-  <li>SCSS</li>
+  <li>Sass</li>
   <li>Cypress</li>
   <li>Figma</li>
 </ul>
